@@ -3,25 +3,26 @@ import { GraduationCap, Code, Award, MapPin } from 'lucide-react';
 
 const About = () => {
   const skills = [
-    'JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'Java',
-    'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git', 'Linux'
+    'Python','React', 'Node.js', 'TypeScript' , 'TailWindCSS' , 'n8n', 'JSON',
+     'PostgreSQL', 'MySQL', 'Zapier', 'Git', 'Make'
   ];
 
   const education = [
     {
-      degree: 'Bachelor of Technology in Computer Science',
-      institution: 'Indian Institute of Technology (IIT)',
-      year: '2018 - 2022',
-      location: 'Delhi, India',
+      degree: 'Bachelor of Science in Data Science and Programming',
+      institution: 'Indian Institute of Technology (IIT) Madras',
+      year: '2021 - 2025',
+      location: 'Chennai, India',
       description: 'Specialized in Software Engineering and Data Structures & Algorithms'
     },
     {
-      degree: 'Higher Secondary Education',
-      institution: 'Delhi Public School',
-      year: '2016 - 2018',
-      location: 'New Delhi, India',
-      description: 'Mathematics, Physics, Chemistry with Computer Science'
-    }
+      degree: 'Bachelor of Science in Mathematics',
+      institution: 'Mahila Jyotiba Phule Rohilkhand University',
+      year: '2020 - 2023',
+      location: 'Uttar Pradesh, India',
+      description: 'Focused on core subjects like Mathematics, Physics, Chemistry, developed a strong foundation in analytical thinking and problem-solving.'
+    },
+
   ];
 
   return (
@@ -31,8 +32,7 @@ const About = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            I'm a passionate software engineer with expertise in full-stack development, 
-            always eager to learn new technologies and solve complex problems.
+            I'm a passionate Software Engineer with a strong foundation in full-stack development, workflow automation, and problem solving. I love building efficient, user-focused web applications and exploring new technologies.
           </p>
         </div>
 
@@ -42,22 +42,23 @@ const About = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h2>
             <div className="prose prose-lg text-gray-600 max-w-none">
               <p>
-                Hello! I'm Anmol Varshney, a software engineer based in India with a passion for 
-                creating innovative digital solutions. My journey in technology began during my 
-                undergraduate studies at IIT Delhi, where I discovered my love for programming 
-                and problem-solving.
+                Hello! I'm Anmol Varshney, a software engineer based in India.
+                My journey into tech began with a deep curiosity about how things
+                work and a love for solving problems. I pursued a B.Sc. in Mathematics while self-learning
+                programming, which eventually led me to the B.Sc. in Programming & Data Science at IIT 
+                Madras.Along the way, I’ve interned at leading companies like Samsung R&D, HackerEarth,
+                and GeeksforGeeks, where I worked on real-world problems ranging from scalable backend 
+                systems to interactive learning platforms. These experiences taught me how to write clean,
+                efficient code, work in agile teams, and deliver meaningful features under tight deadlines.
+                Beyond work, I’m passionate about problem solving, workflow automation, and open-source contributions.
+                I actively participate in coding contests, achieving top national and global ranks, and enjoy
+                experimenting with tools like n8n, Zapier, and Docker to automate everyday tasks. Whether it’s building
+                web apps, visualizing OS algorithms, or designing smart systems, I love turning ideas into real, working
+                products.When I’m not coding, you’ll find me participating in programming contests, contributing to 
+                open-source projects, or exploring new technologies. I believe in continuous learning and in sharing knowledge
+                with the developer community.
               </p>
-              <p>
-                Over the years, I've had the opportunity to work on diverse projects ranging from 
-                web applications to system design. I specialize in full-stack development with 
-                expertise in modern JavaScript frameworks, backend technologies, and cloud platforms.
-              </p>
-              <p>
-                When I'm not coding, you can find me participating in competitive programming 
-                contests, contributing to open-source projects, or exploring new technologies. 
-                I believe in continuous learning and sharing knowledge with the developer community.
-              </p>
-            </div>
+              </div>
           </div>
         </section>
 
@@ -112,25 +113,25 @@ const About = () => {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Frontend Development</h4>
                   <p className="text-gray-600 text-sm">
-                    React, TypeScript, Next.js, Tailwind CSS, responsive design
+                    React, TypeScript, Next.js, Tailwind CSS, JSON
                   </p>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Backend Development</h4>
                   <p className="text-gray-600 text-sm">
-                    Node.js, Express, Python, RESTful APIs, microservices
+                    Node.js, Python, n8n, Zapier, Make, REST APIs
                   </p>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Database Management</h4>
                   <p className="text-gray-600 text-sm">
-                    MongoDB, PostgreSQL, Redis, database optimization
+                    MySQL, PostgreSQL, database optimization
                   </p>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">DevOps & Cloud</h4>
                   <p className="text-gray-600 text-sm">
-                    AWS, Docker, CI/CD, monitoring, deployment automation
+                    Git, Docker, CI/CD, cloud services (AWS, GCP)
                   </p>
                 </div>
               </div>

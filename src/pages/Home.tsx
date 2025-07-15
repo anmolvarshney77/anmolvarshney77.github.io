@@ -1,6 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import GradientText from "../components/GradientText";
+import ShinyText from "../components/ShinyText";
 
 const Home = () => {
   return (
@@ -12,17 +14,29 @@ const Home = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Hi, I'm{' '}
-                  <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                  Hi, I'm{" "}
+                  <GradientText
+                    colors={[
+                      "#40ffaa",
+                      "#4079ff",
+                      "#40ffaa",
+                      "#4079ff",
+                      "#40ffaa",
+                    ]}
+                    animationSpeed={3}
+                    className=""
+                  >
                     Anmol Varshney
-                  </span>
+                  </GradientText>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Software Engineer & Full-Stack Developer passionate about building innovative 
-                  solutions and contributing to open-source projects.
-                </p>
+                <ShinyText
+                  text="Software Engineer & Full-Stack Developer passionate about building innovative 
+                  solutions and contributing to open-source projects."
+                  disabled={false}
+                  speed={5}
+                  className="custom-class"
+                />
               </div>
-
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/projects"
@@ -32,12 +46,12 @@ const Home = () => {
                   <ArrowRight className="ml-2" size={16} />
                 </Link>
                 <a
-                  href="/resume.pdf"
+                  href="https://www.linkedin.com/in/anmolvarshney77/overlay/1749477696148/single-media-viewer/?profileId=ACoAADdL6tIBSZwHW8CJ9pNu54ptiLT8tmBxxjk"
                   download
                   className="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <Download className="mr-2" size={16} />
-                  Download Resume
+                  Open Resume
                 </a>
               </div>
 
@@ -45,19 +59,19 @@ const Home = () => {
                 <span className="text-sm text-gray-500">Connect with me:</span>
                 <div className="flex space-x-3">
                   <a
-                    href="https://github.com/anmolvarshney"
+                    href="https://github.com/anmolvarshney77"
                     className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
                   >
                     <Github size={20} />
                   </a>
                   <a
-                    href="https://linkedin.com/in/anmolvarshney"
+                    href="https://linkedin.com/in/anmolvarshney77"
                     className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
                   >
                     <Linkedin size={20} />
                   </a>
                   <a
-                    href="mailto:anmol@example.com"
+                    href="https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com"
                     className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
                   >
                     <Mail size={20} />
@@ -66,16 +80,16 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="relative z-10">
-                <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Anmol Varshney"
-                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl"
-                />
-              </div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur-lg opacity-20"></div>
-            </div>
+            <div className="relative w-[450px] h-[486px] mx-auto rounded-2xl shadow-2xl overflow-hidden">
+  <img
+    src="https://i.postimg.cc/8z1GvdTB/picofme-3.png"
+    alt="Anmol Varshney"
+    className="w-full h-full object-cover"
+  />
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-2xl blur-lg opacity-20 -z-10"></div>
+</div>
+
+
           </div>
         </div>
       </section>
@@ -85,11 +99,11 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">5+</div>
+              <div className="text-3xl font-bold text-blue-600">1+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-emerald-600">20+</div>
+              <div className="text-3xl font-bold text-emerald-600">10+</div>
               <div className="text-gray-600">Projects Completed</div>
             </div>
             <div className="space-y-2">
@@ -112,7 +126,8 @@ const Home = () => {
               Explore My Portfolio
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Discover my journey, projects, and achievements in software development
+              Discover my journey, projects, and achievements in software
+              development
             </p>
           </div>
 
@@ -124,7 +139,9 @@ const Home = () => {
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
                 <span className="text-blue-600 font-bold">AB</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">About Me</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                About Me
+              </h3>
               <p className="text-gray-600">
                 Learn about my background, education, and technical skills
               </p>
@@ -137,22 +154,24 @@ const Home = () => {
               <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-200 transition-colors">
                 <span className="text-emerald-600 font-bold">PR</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Projects</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Projects
+              </h3>
               <p className="text-gray-600">
                 Explore my latest projects and technical implementations
               </p>
             </Link>
 
             <Link
-              to="/blog"
+              to="/Experience"
               className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-purple-200"
             >
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
-                <span className="text-purple-600 font-bold">BL</span>
+                <span className="text-purple-600 font-bold">Exp</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Blog</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Experience</h3>
               <p className="text-gray-600">
-                Read my thoughts on technology, tutorials, and insights
+                Learn about my journey till now, what internship I have done till now and what i learnt out of it
               </p>
             </Link>
           </div>

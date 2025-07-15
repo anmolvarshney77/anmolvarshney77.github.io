@@ -12,7 +12,7 @@ const Navbar = () => {
     { name: 'Experience', path: '/experience', icon: Briefcase },
     { name: 'Projects', path: '/projects', icon: Code2 },
     { name: 'Achievements', path: '/achievements', icon: Trophy },
-    { name: 'Blog', path: '/blog', icon: BookOpen },
+    // { name: 'Blog', path: '/blog', icon: BookOpen },
     { name: 'Contact', path: '/contact', icon: Mail },
   ];
 

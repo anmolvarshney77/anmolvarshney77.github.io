@@ -10,25 +10,32 @@ const Achievements = () => {
       bgColor: 'bg-yellow-50',
       items: [
         {
-          title: 'CodeChef 5-Star Rating',
-          description: 'Achieved 5-star rating on CodeChef with consistent performance in monthly contests',
-          date: '2023',
-          rank: 'Top 1%',
-          details: 'Global ranking in top 1% with 2100+ rating points'
-        },
-        {
-          title: 'Google Code Jam - Round 2',
-          description: 'Advanced to Round 2 of Google Code Jam 2023',
-          date: '2023',
-          rank: 'Top 3000',
-          details: 'Among top 3000 participants worldwide'
-        },
-        {
-          title: 'Codeforces Expert',
-          description: 'Reached Expert level (1600+ rating) on Codeforces',
+          title: 'CodeChef Programming Contest',
+          description: 'Achieved National Rank 16 in CodeChef contest in programming in Python',
           date: '2022',
-          rank: 'Top 5%',
-          details: 'Consistent performance in Div 1 and Div 2 contests'
+          rank: 'Top 1%',
+          details: 'National ranking in top 16 among more than 800 students'
+        },
+        {
+          title: 'Google Kick Start 2024 – Round E',
+          description: 'Secured Global Rank 609 and India Rank 379 among 20,000+ participants',
+          date: '2024',
+          rank: 'Top 3%',
+          details: 'Achieved strong global performance in Google’s global coding competition'
+        },
+        {
+          title: 'Codeforces Global Contest',
+          description: 'Ranked Global 73 and India Top 10 among 15,000+ participants',
+          date: '2024',
+          rank: 'Top 0.5%',
+          details: 'Demonstrated excellence in data structures and algorithms on a global stage'
+        },
+        {
+          title: 'Web Development Hackathon – HBTU Kanpur',
+          description: 'Runner-up among 10,000+ participants in national-level hackathon',
+          date: '2024',
+          rank: 'Top 2',
+          details: 'Built a full-stack web solution under 36 hours and presented to a live jury panel'
         }
       ]
     },
@@ -39,26 +46,19 @@ const Achievements = () => {
       bgColor: 'bg-purple-50',
       items: [
         {
-          title: 'Smart India Hackathon - Winner',
-          description: 'First place in Smart India Hackathon 2023 Software Edition',
-          date: '2023',
-          rank: '1st Place',
-          details: 'Developed AI-powered solution for traffic management'
+          title: 'AI Agents Hackathon',
+          description: 'Achieved Top 10 rank in AI Agents Hackathon organised by AirTribe',
+          date: '2025',
+          rank: '8th Place',
+          details: 'Developed AI-powered solution for a small business using Lyzr AI'
         },
         {
-          title: 'HackerEarth Deep Learning Challenge',
+          title: 'Hack The Vibe',
           description: 'Top 10 finish in Computer Vision challenge',
-          date: '2023',
+          date: '2025',
           rank: 'Top 10',
-          details: 'Achieved 94.5% accuracy in image classification task'
+          details: 'Achieved 90% results in Computer Vision challenge'
         },
-        {
-          title: 'AngelHack Global Hackathon',
-          description: 'Second place in Delhi regional competition',
-          date: '2022',
-          rank: '2nd Place',
-          details: 'Built fintech solution for micro-lending'
-        }
       ]
     },
     {
@@ -68,25 +68,18 @@ const Achievements = () => {
       bgColor: 'bg-blue-50',
       items: [
         {
-          title: 'Dean\'s List Recognition',
-          description: 'Consistently maintained top 5% academic performance',
-          date: '2020-2022',
-          rank: 'Top 5%',
-          details: 'GPA: 9.2/10 for 4 consecutive semesters'
-        },
-        {
-          title: 'Best Student Developer Award',
+          title: 'Top 5% Promising Developer',
           description: 'Recognition for outstanding contribution to open source',
-          date: '2022',
+          date: '2024',
           rank: 'University Level',
           details: 'Contributed to 15+ open source projects'
         },
         {
-          title: 'Technical Excellence Award',
-          description: 'Company-wide recognition for innovative solutions',
-          date: '2023',
-          rank: 'Company Wide',
-          details: 'Implemented system that improved efficiency by 40%'
+          title: 'Student Impact Recognition – GeeksforGeeks',
+          description: 'Recognized for mentoring 1000+ students across multiple DSA courses',
+          date: '2024',
+          rank: 'Top Mentor',
+          details: 'Consistently rated highly for clear explanations, improving course engagement and completion rates'
         }
       ]
     },
@@ -97,25 +90,18 @@ const Achievements = () => {
       bgColor: 'bg-emerald-50',
       items: [
         {
-          title: 'AWS Solutions Architect',
-          description: 'Associate level certification for cloud architecture',
-          date: '2023',
+          title: 'Inspect Rich Documents with Gemini Multimodality and Multimodal RAG',
+          description: 'Skill badge issued by Google Cloud for mastering Gemini and Vertex AI with RAG techniques',
+          date: '2025',
           rank: 'Certified',
-          details: 'Score: 885/1000 (Pass: 720)'
+          details: 'Skills: Google Gemini, Vertex AI, Retrieval-Augmented Generation (RAG)'
         },
         {
-          title: 'Google Cloud Professional',
-          description: 'Professional Cloud Developer certification',
-          date: '2023',
-          rank: 'Professional',
-          details: 'Expertise in cloud-native application development'
-        },
-        {
-          title: 'Microsoft Azure Fundamentals',
-          description: 'Foundation certification in Azure cloud services',
-          date: '2022',
+          title: 'Prompt Design in Vertex AI',
+          description: 'Skill badge issued by Google Cloud for mastering prompt engineering using Gemini and Vertex AI',
+          date: '2025',
           rank: 'Certified',
-          details: 'Score: 920/1000'
+          details: 'Skills: Prompt Engineering, Google Gemini, Vertex AI, Imagen'
         }
       ]
     }
@@ -193,19 +179,19 @@ const Achievements = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-600">15+</div>
+                <div className="text-3xl font-bold text-blue-600">8+</div>
                 <div className="text-gray-600 text-sm">Contest Wins</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-purple-600">5+</div>
+                <div className="text-3xl font-bold text-purple-600">3+</div>
                 <div className="text-gray-600 text-sm">Certifications</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-emerald-600">Top 1%</div>
+                <div className="text-3xl font-bold text-emerald-600">Top 5%</div>
                 <div className="text-gray-600 text-sm">Global Ranking</div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-yellow-600">2100+</div>
+                <div className="text-3xl font-bold text-yellow-600">1800+</div>
                 <div className="text-gray-600 text-sm">Rating Points</div>
               </div>
             </div>

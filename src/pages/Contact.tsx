@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -33,20 +33,20 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'anmol@example.com',
-      href: 'mailto:anmol@example.com'
+      label: 'Gmail',
+      value: 'varshney.anmol.29@gmail.com',
+      href: 'https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+91 98765 43210',
-      href: 'tel:+919876543210'
+      value: '+91 76686 54821',
+      href: 'tel:+917668654821'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'New Delhi, India',
+      value: 'Bengaluru, India',
       href: '#'
     }
   ];
@@ -55,19 +55,19 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/anmolvarshney',
+      href: 'https://github.com/anmolvarshney77',
       color: 'hover:text-gray-900'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/anmolvarshney',
+      href: 'https://linkedin.com/in/anmolvarshney77',
       color: 'hover:text-blue-600'
     },
     {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com/anmolvarshney',
+      icon: Instagram,
+      label: 'Instagram',
+      href: 'https://instagram.com/theanmolvarshney',
       color: 'hover:text-blue-400'
     }
   ];

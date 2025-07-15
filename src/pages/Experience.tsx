@@ -4,49 +4,48 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Software Engineer',
-      company: 'Tech Solutions Inc.',
-      type: 'Full-time',
-      location: 'Remote',
-      period: 'Jan 2023 - Present',
-      description: 'Leading full-stack development of enterprise web applications using React, Node.js, and AWS. Mentoring junior developers and implementing best practices for code quality and performance.',
-      achievements: [
-        'Reduced application load time by 40% through optimization',
-        'Led migration to microservices architecture',
-        'Mentored 3 junior developers and conducted code reviews',
-        'Implemented CI/CD pipeline reducing deployment time by 60%'
-      ],
-      technologies: ['React', 'Node.js', 'TypeScript', 'AWS', 'MongoDB', 'Docker']
-    },
-    {
-      title: 'Software Engineer',
-      company: 'Innovative Systems Ltd.',
-      type: 'Full-time',
-      location: 'Bangalore, India',
-      period: 'Jul 2021 - Dec 2022',
-      description: 'Developed and maintained web applications for financial services. Collaborated with cross-functional teams to deliver high-quality software solutions.',
-      achievements: [
-        'Built responsive web applications serving 50K+ users',
-        'Implemented real-time data synchronization features',
-        'Reduced API response time by 35% through optimization',
-        'Contributed to open-source projects and internal tools'
-      ],
-      technologies: ['JavaScript', 'Python', 'PostgreSQL', 'Redis', 'Git', 'Linux']
-    },
-    {
-      title: 'Software Development Intern',
-      company: 'StartupXYZ',
+      title: 'Software Engineer Intern',
+      company: 'HackerEarth',
       type: 'Internship',
-      location: 'Delhi, India',
-      period: 'May 2021 - Jul 2021',
-      description: 'Worked on developing mobile-first web applications and learned modern development practices in an agile environment.',
+      location: 'Remote',
+      period: 'August 2024 - February 2025',
+      description: 'Contributed to the Frontend and backend systems of HackerEarth’s coding assessment platform, focusing on improving performance and reliability. Collaborated with the product team to build new features and resolve real-time issueselopment of enterprise web applications using React and Node.js.',
+      achievements: ['Improved API response times by optimizing backend service architecture.',
+        'Implemented a new feature for real-time code evaluation, enhancing user experience.',
+        'Successfully delivered key features for the test evaluation module, enhancing recruiter analytics.',
+        'Participated in code reviews and contributed to the development of best practices.'
+        ],
+      technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Git']
+    },
+    {
+      title: 'Teaching Assistant',
+      company: 'GeeksforGeeks',
+      type: 'Internship',
+      location: 'Remote',
+      period: 'Mar 2024 - July 2024',
+      description: 'Conducted doubt-solving sessions in Python,SQL, live problem-solving classes, and helped students strengthen their understanding of code writing and help them writing queries in SQL using MySQL.',
       achievements: [
-        'Developed 3 key features for the main product',
-        'Improved code coverage by 25% through unit testing',
+        'Mentored 300+ students through hands-on coding and practical explanations.',
+        'Created engaging learning materials and quizzes to enhance understanding.',
+        'Organized weekly coding challenges to foster a competitive learning environment.',
+        'Consistently rated highly for most approachable mentoring style.'
+      ],
+      technologies: ['Python', 'MySQL', 'SQL', 'Git']
+    },
+    {
+      title: 'Software Engineer Intern',
+      company: 'Samsung R&D Institute (SRI-B)',
+      type: 'Internship',
+      location: 'Remote',
+      period: 'Sep 2023 - Feb 2024',
+      description: 'Worked on the automation team to develop internal tools that streamlined debugging and analytics for Samsung devices.',
+      achievements: [
+        'Developed a shell-based automation tool that reduced debugging time by over 60%.',
+        'Enhanced log analysis workflows by writing efficient Python scripts.',
         'Participated in daily standups and sprint planning',
         'Received excellent feedback from team leads'
       ],
-      technologies: ['React', 'Express.js', 'MySQL', 'Jest', 'Agile']
+      technologies: ['Python', 'Linux', 'MySQL', 'Git']
     }
   ];
 
@@ -57,8 +56,7 @@ const Experience = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Professional Experience</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            My journey through various roles in software development, highlighting key 
-            achievements and technologies used.
+           My journey through multiple software engineering internships has equipped me with hands-on experience in backend development, automation, and technical mentoring — with key contributions across companies like Samsung R&D, HackerEarth, and GeeksforGeeks.
           </p>
         </div>
 
@@ -148,7 +146,7 @@ const Experience = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/resume.pdf"
+                href="https://www.linkedin.com/in/anmolvarshney77/overlay/1749477696148/single-media-viewer/?profileId=ACoAADdL6tIBSZwHW8CJ9pNu54ptiLT8tmBxxjk"
                 download
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
