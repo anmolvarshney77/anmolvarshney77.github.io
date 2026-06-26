@@ -1,26 +1,7 @@
 import React from 'react';
 import { Github, ExternalLink, ArrowRight } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-function tiltOn(e: React.MouseEvent<HTMLDivElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width  - 0.5;
-  const y = (e.clientY - r.top)  / r.height - 0.5;
-  e.currentTarget.style.transform =
-    `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-4px)`;
-}
-function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
-  e.currentTarget.style.transform = '';
-}
-function spotlightMove(e: React.MouseEvent<HTMLDivElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  e.currentTarget.style.setProperty('--spotlight-x', `${((e.clientX - r.left) / r.width) * 100}%`);
-  e.currentTarget.style.setProperty('--spotlight-y', `${((e.clientY - r.top)  / r.height) * 100}%`);
-}
-function spotlightLeave(e: React.MouseEvent<HTMLDivElement>) {
-  e.currentTarget.style.setProperty('--spotlight-x', '-200%');
-  e.currentTarget.style.setProperty('--spotlight-y', '-200%');
-}
+import { tiltOn, tiltOff, spotlightMove, spotlightLeave } from '../utils/tilt';
 
 const projects = [
   {
@@ -91,7 +72,7 @@ const Projects = () => {
           {featured.map((project, i) => (
             <div
               key={i}
-              onMouseMove={e => { tiltOn(e); spotlightMove(e); }}
+              onMouseMove={e => { tiltOn(e, 5, 4); spotlightMove(e); }}
               onMouseLeave={e => { tiltOff(e); spotlightLeave(e); }}
               className={[
                 'reveal tilt-card spotlight-card bg-zinc-900 border rounded-2xl overflow-hidden',

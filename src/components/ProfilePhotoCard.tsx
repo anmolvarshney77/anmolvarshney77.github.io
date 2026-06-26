@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 
-const PHOTO_URL = 'https://i.postimg.cc/8z1GvdTB/picofme-3.png';
+import { PHOTO_URL } from '../constants';
 
 const ProfilePhotoCard: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);

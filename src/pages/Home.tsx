@@ -6,8 +6,8 @@ import { useTypingAnimation } from '../hooks/useTypingAnimation';
 import NeuralBackground from '../components/NeuralBackground';
 import AnimatedStat from '../components/AnimatedStat';
 import ProfilePhotoCard from '../components/ProfilePhotoCard';
-
-const RESUME_URL = 'https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing';
+import { RESUME_URL } from '../constants';
+import { tiltOn, tiltOff } from '../utils/tilt';
 
 // ── MagneticWrapper ─────────────────────────────────────────────
 const MagneticWrapper: React.FC<{ children: React.ReactNode; strength?: number }> = ({
@@ -89,16 +89,6 @@ const socials = [
   { href: 'https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com', Icon: Mail,     label: 'Email'    },
 ];
 
-function tiltOn(e: React.MouseEvent<HTMLDivElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width  - 0.5;
-  const y = (e.clientY - r.top)  / r.height - 0.5;
-  e.currentTarget.style.transform =
-    `perspective(900px) rotateX(${-y * 7}deg) rotateY(${x * 7}deg) translateY(-3px)`;
-}
-function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
-  e.currentTarget.style.transform = '';
-}
 
 // ── Component ─────────────────────────────────────────────────────
 const Home = () => {
@@ -274,7 +264,7 @@ const Home = () => {
               return (
                 <div
                   key={i}
-                  onMouseMove={tiltOn}
+                  onMouseMove={e => tiltOn(e, 7, 3)}
                   onMouseLeave={tiltOff}
                   className={[
                     'reveal tilt-card cursor-default bg-zinc-900 border rounded-2xl p-7',

@@ -13,17 +13,14 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     const subject = encodeURIComponent(formData.subject || 'Portfolio Contact');
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
     );
     window.open(`mailto:varshney.anmol.29@gmail.com?subject=${subject}&body=${body}`);
-
-    await new Promise(resolve => setTimeout(resolve, 800));
     setIsSubmitting(false);
     setSubmitted(true);
     setFormData({ name: '', email: '', subject: '', message: '' });

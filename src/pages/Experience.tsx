@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Calendar, ChevronDown, ExternalLink } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
-const RESUME_URL = 'https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing';
+import { RESUME_URL } from '../constants';
 
 const experiences = [
   {
@@ -114,6 +114,7 @@ const Experience = () => {
                   <button
                     onClick={() => setExpanded(expanded === index ? null : index)}
                     className="w-full text-left p-6"
+                    aria-expanded={expanded === index}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">

@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const ScrollProgress: React.FC = () => {
-  const [pct,     setPct]     = useState(0);
-  const [visible, setVisible] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const barRef  = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const update = () => {
+      if (!wrapRef.current || !barRef.current) return;
       const scrollY = window.scrollY;
       const total   = document.documentElement.scrollHeight - window.innerHeight;
-      setPct(total > 0 ? (scrollY / total) * 100 : 0);
-      setVisible(scrollY > 60);
+      barRef.current.style.width    = `${total > 0 ? (scrollY / total) * 100 : 0}%`;
+      wrapRef.current.style.opacity = scrollY > 60 ? '1' : '0';
     };
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
@@ -17,12 +18,14 @@ const ScrollProgress: React.FC = () => {
 
   return (
     <div
+      ref={wrapRef}
       className="fixed top-0 left-0 right-0 z-[60] h-[3px] pointer-events-none"
-      style={{ opacity: visible ? 1 : 0, transition: 'opacity 0.4s ease' }}
+      style={{ opacity: 0, transition: 'opacity 0.4s ease' }}
     >
       <div
+        ref={barRef}
         className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-r-full"
-        style={{ width: `${pct}%`, transition: 'width 0.1s linear' }}
+        style={{ width: '0%', transition: 'width 0.1s linear' }}
       />
     </div>
   );

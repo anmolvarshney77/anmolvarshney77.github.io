@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
-const RESUME_URL = 'https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing';
+import { RESUME_URL } from '../constants';
 
 const Footer = () => {
   const year = new Date().getFullYear();

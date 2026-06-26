@@ -1,17 +1,7 @@
 import React from 'react';
 import { GraduationCap, MapPin, Calendar } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-
-function tiltOn(e: React.MouseEvent<HTMLDivElement>) {
-  const r = e.currentTarget.getBoundingClientRect();
-  const x = (e.clientX - r.left) / r.width  - 0.5;
-  const y = (e.clientY - r.top)  / r.height - 0.5;
-  e.currentTarget.style.transform =
-    `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-2px)`;
-}
-function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
-  e.currentTarget.style.transform = '';
-}
+import { tiltOn, tiltOff } from '../utils/tilt';
 
 const About = () => {
   useScrollReveal();

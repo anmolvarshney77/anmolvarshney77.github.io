@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, Search, BookOpen } from 'lucide-react';
 import { useBlog } from '../context/BlogContext';
@@ -11,7 +11,7 @@ const Blog = () => {
   const [selectedTag,  setSelectedTag]  = useState('');
 
   const posts = getPublishedPosts();
-  const allTags = Array.from(new Set(posts.flatMap(p => p.tags)));
+  const allTags = useMemo(() => Array.from(new Set(posts.flatMap(p => p.tags))), [posts]);
 
   const filteredPosts = posts.filter(post => {
     const matchSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

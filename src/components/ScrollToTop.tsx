@@ -10,7 +10,10 @@ const ScrollToTop: React.FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollUp = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollUp = () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  };
 
   return (
     <button

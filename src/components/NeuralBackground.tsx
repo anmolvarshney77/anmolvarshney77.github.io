@@ -133,13 +133,24 @@ const NeuralBackground: React.FC = () => {
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
     };
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+      } else if (!prefersReduced) {
+        raf = requestAnimationFrame(draw);
+      }
+    };
+
     window.addEventListener('mousemove', onMove, { passive: true });
     window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, []);
 

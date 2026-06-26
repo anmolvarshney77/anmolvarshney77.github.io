@@ -174,14 +174,17 @@
   transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
 }
 
-/* ── Smooth accordion ────────────────────────────────────────── */
+/* ── Smooth accordion (grid-row technique: animates to actual height) ── */
 .accordion-body {
-  overflow: hidden;
-  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity    0.35s ease;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.35s ease;
 }
-.accordion-body.open   { max-height: 800px; opacity: 1; }
-.accordion-body.closed { max-height: 0;     opacity: 0; }
+.accordion-body > * { overflow: hidden; }
+.accordion-body.open   { grid-template-rows: 1fr; opacity: 1; }
+.accordion-body.closed { grid-template-rows: 0fr; }
 
 /* ── Timeline draw-in line ───────────────────────────────────── */
 @keyframes line-grow {

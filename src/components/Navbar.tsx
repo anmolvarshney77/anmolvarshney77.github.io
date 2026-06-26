@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { RESUME_URL } from '../constants';
 
 const Navbar = () => {
   const [isOpen,   setIsOpen]   = useState(false);
@@ -74,7 +75,7 @@ const Navbar = () => {
             ))}
 
             <a
-              href="https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing"
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium rounded-lg transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:-translate-y-px"
@@ -88,6 +89,8 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -96,7 +99,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="mobile-menu-enter md:hidden bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
+        <div id="mobile-menu" className="mobile-menu-enter md:hidden bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
           <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -115,7 +118,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a
-              href="https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing"
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center px-4 py-3 text-indigo-400 text-sm font-medium"
