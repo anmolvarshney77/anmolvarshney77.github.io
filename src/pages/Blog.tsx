@@ -155,7 +155,7 @@ const Blog = () => {
             <p className="text-zinc-400 text-sm mb-6">Follow me for updates on AI, software engineering, and new articles.</p>
             <div className="flex flex-wrap justify-center gap-3">
               <a
-                href="https://twitter.com/anmolvarshney"
+                href="https://twitter.com/anmolvarshney77"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 text-sm font-medium rounded-xl transition-all duration-200"
@@ -163,7 +163,7 @@ const Blog = () => {
                 Follow on Twitter
               </a>
               <a
-                href="https://linkedin.com/in/anmolvarshney"
+                href="https://linkedin.com/in/anmolvarshney77"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 text-sm font-medium rounded-xl transition-all duration-200"

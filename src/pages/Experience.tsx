@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Calendar, ChevronDown, ExternalLink } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -202,12 +203,12 @@ const Experience = () => {
               Download Resume
               <ExternalLink size={14} />
             </a>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 text-sm font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
         </div>
       </div>

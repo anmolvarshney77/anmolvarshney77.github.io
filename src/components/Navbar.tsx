@@ -22,6 +22,7 @@ const Navbar = () => {
     { name: 'Experience',   path: '/experience'   },
     { name: 'Projects',     path: '/projects'     },
     { name: 'Achievements', path: '/achievements' },
+    { name: 'Blog',         path: '/blog'         },
     { name: 'Contact',      path: '/contact'      },
   ];
 
@@ -95,7 +96,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
+        <div className="mobile-menu-enter md:hidden bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
           <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <Link

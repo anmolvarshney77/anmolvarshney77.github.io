@@ -71,9 +71,16 @@ const highlights = [
 ];
 
 const navCards = [
-  { to: '/about',        title: 'About Me',     desc: 'Background, skills, education'  },
-  { to: '/experience',   title: 'Experience',   desc: 'Lyzr AI, Shridhar, Samsung'     },
-  { to: '/achievements', title: 'Achievements', desc: 'Competitions, certifications'    },
+  { to: '/about',        title: 'About Me',     desc: 'Background, skills, education'       },
+  { to: '/experience',   title: 'Experience',   desc: 'Lyzr AI, Shridhar, Samsung'           },
+  { to: '/achievements', title: 'Achievements', desc: 'Competitions, certifications'          },
+  { to: '/contact',      title: 'Get in Touch', desc: 'Open to full-time & freelance roles'  },
+];
+
+const companies = [
+  { name: 'Lyzr AI',               tag: 'Current',    color: 'text-indigo-400', tagBg: 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400' },
+  { name: 'Shridhar LifeSchool',   tag: '2024–2025',  color: 'text-emerald-400', tagBg: '' },
+  { name: 'Samsung R&D (SRI-B)',   tag: '2023–2024',  color: 'text-blue-400', tagBg: '' },
 ];
 
 const socials = [
@@ -271,6 +278,29 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ── Companies ─────────────────────────────────────────── */}
+      <section className="py-14 border-t border-zinc-800/50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="reveal text-center text-zinc-600 text-xs font-semibold tracking-widest uppercase mb-8">
+            Experience at
+          </p>
+          <div className="reveal flex flex-wrap items-center justify-center gap-4 sm:gap-8">
+            {companies.map((c, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2.5 px-4 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-zinc-700 transition-colors duration-200"
+                style={{ transitionDelay: `${i * 0.06}s` }}
+              >
+                <span className={`text-sm font-semibold ${c.color}`}>{c.name}</span>
+                <span className={`text-xs px-2 py-0.5 rounded-md border font-medium ${c.tagBg || 'bg-zinc-800 border-zinc-700 text-zinc-500'}`}>
+                  {c.tag}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── What I do ─────────────────────────────────────────── */}
       <section className="py-24 border-t border-zinc-800/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -308,7 +338,7 @@ const Home = () => {
             })}
           </div>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-4">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {navCards.map((item, i) => (
               <Link
                 key={i}
