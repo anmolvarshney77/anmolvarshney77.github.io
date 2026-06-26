@@ -1,215 +1,193 @@
 import React from 'react';
-import { Trophy, Award, Medal, Star, Target, Zap } from 'lucide-react';
+import { Trophy, Zap, Award, Medal, Star } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Achievements = () => {
-  const achievements = [
+  useScrollReveal();
+
+  const categories = [
     {
-      category: 'Competitive Programming',
+      label: 'Competitive Programming',
       icon: Trophy,
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
+      color: 'text-yellow-400',
+      bg: 'bg-yellow-500/10',
+      border: 'border-yellow-500/20',
       items: [
         {
           title: 'IIT Madras Programming Competition',
-          description: 'Achieved National Rank 16 in the Programming Competition conducted by IIT Madras',
-          date: '2022',
           rank: 'National Rank 16',
-          details: 'Ranked 16th nationally among 8,000+ participants'
+          date: '2022',
+          participants: '8,000+',
+          desc: 'Ranked 16th nationally in the programming competition conducted by IIT Madras.',
+          badge: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
         },
         {
-          title: 'Google Kick Start 2024 – Round E',
-          description: 'Secured Global Rank 609 and India Rank 379 among 20,000+ participants',
+          title: 'Google Kickstart 2024 – Round E',
+          rank: 'Global Rank 609',
           date: '2024',
-          rank: 'Top 3%',
-          details: 'Achieved strong global performance in Google global coding competition'
+          participants: '20,000+',
+          desc: 'Secured Global Rank 609 and India Rank 379 in Google global coding competition.',
+          badge: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
         },
         {
           title: 'Codeforces Global Contest',
-          description: 'Ranked Global 73 and India Top 10 among 15,000+ participants',
+          rank: 'Global Rank 73',
           date: '2024',
-          rank: 'Top 0.5%',
-          details: 'Demonstrated excellence in data structures and algorithms on a global stage'
+          participants: '15,000+',
+          desc: 'Ranked Global 73 and India Top 10, demonstrating top 0.5% performance globally.',
+          badge: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
         },
         {
-          title: 'Web Development Hackathon – HBTU Kanpur',
-          description: 'Runner-up among 10,000+ participants in national-level hackathon',
+          title: 'Web Dev Hackathon – HBTU Kanpur',
+          rank: 'Runner-Up',
           date: '2024',
-          rank: 'Top 2',
-          details: 'Built a full-stack web solution under 36 hours and presented to a live jury panel'
-        }
-      ]
+          participants: '10,000+',
+          desc: 'Runner-up in national-level Web Development Hackathon at HBTU Kanpur Technical Fest.',
+          badge: 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
+        },
+      ],
     },
     {
-      category: 'Hackathons & Contests',
+      label: 'Hackathons',
       icon: Zap,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: 'text-purple-400',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
       items: [
         {
-          title: 'AI Agents Hackathon',
-          description: 'Achieved Top 10 rank in AI Agents Hackathon organised by AirTribe',
-          date: '2025',
+          title: 'AI Agents Hackathon – AirTribe',
           rank: '8th Place',
-          details: 'Developed AI-powered solution for a small business using Lyzr AI'
+          date: '2025',
+          participants: 'Global',
+          desc: 'Developed an AI-powered solution for small businesses using Lyzr AI, ranked 8th globally.',
+          badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
         },
         {
           title: 'Hack The Vibe',
-          description: 'Top 10 finish in Computer Vision challenge',
-          date: '2025',
           rank: 'Top 10',
-          details: 'Achieved 90% results in Computer Vision challenge'
-        },
-      ]
-    },
-    {
-      category: 'Academic & Professional',
-      icon: Award,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      items: [
-        {
-          title: 'Fellowship – Science and Technology Council, Uttar Pradesh',
-          description: 'Shortlisted for the Fellowship of Science and Technology Council, Uttar Pradesh',
-          date: '2020',
-          rank: 'Fellowship',
-          details: 'Shortlisted out of 50,000+ participants statewide'
-        }
-      ]
-    },
-    {
-      category: 'Certifications & Recognition',
-      icon: Medal,
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-50',
-      items: [
-        {
-          title: 'Inspect Rich Documents with Gemini Multimodality and Multimodal RAG',
-          description: 'Skill badge issued by Google Cloud for mastering Gemini and Vertex AI with RAG techniques',
           date: '2025',
-          rank: 'Certified',
-          details: 'Skills: Google Gemini, Vertex AI, Retrieval-Augmented Generation (RAG)'
+          participants: 'National',
+          desc: 'Top 10 finish in Computer Vision challenge with 90% accuracy results.',
+          badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+        },
+      ],
+    },
+    {
+      label: 'Academic & Recognition',
+      icon: Award,
+      color: 'text-blue-400',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
+      items: [
+        {
+          title: 'Fellowship – S&T Council, Uttar Pradesh',
+          rank: 'Fellowship',
+          date: '2020',
+          participants: '50,000+',
+          desc: 'Shortlisted for the Fellowship of Science and Technology Council, Uttar Pradesh out of 50,000+ applicants.',
+          badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+        },
+      ],
+    },
+    {
+      label: 'Certifications',
+      icon: Medal,
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
+      items: [
+        {
+          title: 'Gemini Multimodality & Multimodal RAG',
+          rank: 'Google Cloud',
+          date: '2025',
+          participants: '',
+          desc: 'Skill badge by Google Cloud for mastering Gemini multimodality and RAG techniques on Vertex AI.',
+          badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
         },
         {
           title: 'Prompt Design in Vertex AI',
-          description: 'Skill badge issued by Google Cloud for mastering prompt engineering using Gemini and Vertex AI',
+          rank: 'Google Cloud',
           date: '2025',
-          rank: 'Certified',
-          details: 'Skills: Prompt Engineering, Google Gemini, Vertex AI, Imagen'
-        }
-      ]
-    }
+          participants: '',
+          desc: 'Skill badge by Google Cloud for mastering prompt engineering using Gemini and Vertex AI.',
+          badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+        },
+      ],
+    },
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen bg-zinc-950 pt-24 pb-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Achievements & Recognition</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A showcase of my accomplishments in competitive programming, hackathons, 
-            academics, and professional development.
+        <div className="reveal mb-16">
+          <p className="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-3">Achievements</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Recognition &amp; Awards</h1>
+          <p className="text-zinc-400 text-lg max-w-2xl">
+            Highlights from competitive programming, hackathons, academic recognition, and professional certifications.
           </p>
         </div>
 
-        {/* Achievement Categories */}
-        <div className="space-y-16">
-          {achievements.map((category, categoryIndex) => {
-            const IconComponent = category.icon;
+        {/* Summary bar */}
+        <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800/50 rounded-2xl overflow-hidden border border-zinc-800/50 mb-16">
+          {[
+            { value: 'Top 0.5%', label: 'Global Rank (CF)' },
+            { value: 'Rank 16',  label: 'National (IIT-M)' },
+            { value: '4+',       label: 'Hackathons'       },
+            { value: '2',        label: 'GCP Certifications'},
+          ].map((stat, i) => (
+            <div key={i} className="bg-zinc-900/80 px-6 py-6">
+              <div className="text-xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-zinc-500 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Categories */}
+        <div className="space-y-14">
+          {categories.map((cat, ci) => {
+            const Icon = cat.icon;
             return (
-              <section key={categoryIndex}>
-                <div className="flex items-center mb-8">
-                  <div className={`p-3 rounded-lg ${category.bgColor} mr-4`}>
-                    <IconComponent className={`${category.color}`} size={28} />
+              <div key={ci} className="reveal">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={"w-9 h-9 rounded-xl flex items-center justify-center " + cat.bg}>
+                    <Icon className={cat.color} size={18} />
                   </div>
-                  <h2 className="text-2xl font-bold text-gray-900">{category.category}</h2>
+                  <h2 className="text-white font-semibold text-xl">{cat.label}</h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {category.items.map((achievement, achievementIndex) => (
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {cat.items.map((item, ii) => (
                     <div
-                      key={achievementIndex}
-                      className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow group"
+                      key={ii}
+                      className={
+                        "reveal bg-zinc-900 border rounded-2xl p-6 hover:border-zinc-700 hover:-translate-y-0.5 transition-all duration-200 " +
+                        cat.border
+                      }
                     >
                       <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            {achievement.title}
-                          </h3>
-                          <div className="flex items-center space-x-2 mb-2">
-                            <span className={`px-3 py-1 rounded-full text-sm font-medium ${category.bgColor} ${category.color}`}>
-                              {achievement.rank}
-                            </span>
-                            <span className="text-sm text-gray-500">{achievement.date}</span>
-                          </div>
+                        <span className={"px-2.5 py-1 text-xs font-semibold rounded-lg border " + item.badge}>
+                          {item.rank}
+                        </span>
+                        <div className="flex items-center gap-1 text-zinc-600">
+                          <Star size={12} className="fill-current text-yellow-500/50" />
+                          <span className="text-xs">{item.date}</span>
                         </div>
-                        <Star className="text-yellow-400 fill-current" size={20} />
                       </div>
-
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {achievement.description}
-                      </p>
-
-                      <div className="pt-4 border-t border-gray-100">
-                        <p className="text-sm text-gray-500">
-                          <span className="font-medium">Details:</span> {achievement.details}
-                        </p>
-                      </div>
+                      <h3 className="text-white font-semibold text-sm mb-2 leading-snug">{item.title}</h3>
+                      <p className="text-zinc-400 text-xs leading-relaxed mb-3">{item.desc}</p>
+                      {item.participants && (
+                        <p className="text-zinc-600 text-xs">Among {item.participants} participants</p>
+                      )}
                     </div>
                   ))}
                 </div>
-              </section>
+              </div>
             );
           })}
         </div>
 
-        {/* Stats Summary */}
-        <section className="mt-20">
-          <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-emerald-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-              Achievement Summary
-            </h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-blue-600">8+</div>
-                <div className="text-gray-600 text-sm">Contest Wins</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-purple-600">3+</div>
-                <div className="text-gray-600 text-sm">Certifications</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-emerald-600">Top 5%</div>
-                <div className="text-gray-600 text-sm">Global Ranking</div>
-              </div>
-              <div className="space-y-2">
-                <div className="text-3xl font-bold text-yellow-600">1800+</div>
-                <div className="text-gray-600 text-sm">Rating Points</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-            <Target className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              Always Striving for Excellence
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              These achievements represent my commitment to continuous learning and excellence. 
-              I'm always looking for new challenges and opportunities to grow.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Let's Connect
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );

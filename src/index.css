@@ -1,3 +1,134 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #09090B;
+    color: #F8FAFC;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #F8FAFC;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #09090B; }
+  ::-webkit-scrollbar-thumb { background: #3F3F46; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #52525B; }
+}
+
+/* ── Scroll-triggered reveal ─────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.18s; }
+.reveal-d3 { transition-delay: 0.26s; }
+.reveal-d4 { transition-delay: 0.34s; }
+.reveal-d5 { transition-delay: 0.42s; }
+
+/* ── Animated gradient border (profile photo ring) ───────────── */
+@keyframes gradient-border-spin {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+.gradient-border-animated {
+  background: linear-gradient(270deg, #6366f1, #a855f7, #22d3ee, #ec4899, #6366f1);
+  background-size: 400% 400%;
+  animation: gradient-border-spin 5s ease infinite;
+}
+
+/* ── Floating keyframes for badges ──────────────────────────── */
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+.badge-float   { animation: badge-float 3.5s ease-in-out infinite; }
+.badge-float-2 { animation: badge-float 3.5s ease-in-out 0.6s infinite; }
+.badge-float-3 { animation: badge-float 3.5s ease-in-out 1.2s infinite; }
+
+/* ── Tilt card (3-D perspective) ─────────────────────────────── */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}
+
+/* ── Spotlight overlay (CSS-variable driven pseudo-element) ─── */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    340px circle at var(--spotlight-x, -200%) var(--spotlight-y, -200%),
+    rgba(99, 102, 241, 0.07),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* ── Shimmer for skill tags on hover ─────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.shimmer-tag:hover {
+  background: linear-gradient(90deg, rgba(99,102,241,0.15) 25%, rgba(168,85,247,0.2) 50%, rgba(99,102,241,0.15) 75%);
+  background-size: 200% auto;
+  animation: shimmer 1.5s linear infinite;
+  border-color: rgba(99,102,241,0.4);
+  color: #c7d2fe;
+}
+
+@layer components {
+  .section-header { @apply text-sm font-semibold tracking-widest uppercase text-indigo-400 mb-3; }
+  .section-title  { @apply text-3xl md:text-4xl font-bold text-white mb-4; }
+  .section-subtitle { @apply text-zinc-400 text-lg leading-relaxed; }
+  .card { @apply bg-zinc-900 border border-zinc-800 rounded-2xl transition-all duration-300; }
+  .card:hover { @apply border-zinc-700 shadow-xl shadow-black/20; }
+  .btn-primary  { @apply inline-flex items-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all duration-200 text-sm; }
+  .btn-secondary { @apply inline-flex items-center px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 font-medium rounded-xl transition-all duration-200 text-sm; }
+  .tag { @apply inline-flex items-center px-3 py-1 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-lg border border-zinc-700/50; }
+  .gradient-text { @apply bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent; }
+  .glow-indigo { box-shadow: 0 0 40px rgba(99, 102, 241, 0.15); }
+}
+
+@layer utilities {
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .text-balance { text-wrap: balance; }
+}
+
+/* ── Reduced-motion accessibility ────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -19,7 +19,7 @@ function App() {
     <AdminProvider>
       <BlogProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50 flex flex-col">
+          <div className="min-h-screen bg-zinc-950 flex flex-col">
             <Navbar />
             <main className="flex-grow">
               <Routes>

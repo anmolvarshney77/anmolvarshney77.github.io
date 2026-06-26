@@ -1,142 +1,228 @@
 import React from 'react';
-import { GraduationCap, Code, Award, MapPin } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+
+function tiltOn(e: React.MouseEvent<HTMLDivElement>) {
+  const r = e.currentTarget.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width  - 0.5;
+  const y = (e.clientY - r.top)  / r.height - 0.5;
+  e.currentTarget.style.transform =
+    `perspective(900px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg) translateY(-2px)`;
+}
+function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
+  e.currentTarget.style.transform = '';
+}
 
 const About = () => {
-  const skills = [
-    'Python', 'Java', 'Golang', 'C++', 'C', 'JavaScript', 'TypeScript', 'SQL', 'HTML', 'Bash',
-    'FastAPI', 'SpringBoot', 'Node.js', 'React', 'Next.js', 'LangChain', 'LangGraph', 'LLM', 'RAG',
-    'MySQL', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Docker', 'Kubernetes', 'Kafka', 'Redis', 'Git', 'Linux', 'n8n'
+  useScrollReveal();
+
+  const skillGroups = [
+    {
+      category: 'Languages',
+      color: 'text-indigo-400',
+      bg: 'bg-indigo-500/10',
+      border: 'border-indigo-500/20',
+      skills: ['Python', 'TypeScript', 'JavaScript', 'Golang', 'Java', 'C++', 'C', 'SQL', 'Bash'],
+    },
+    {
+      category: 'Frontend',
+      color: 'text-cyan-400',
+      bg: 'bg-cyan-500/10',
+      border: 'border-cyan-500/20',
+      skills: ['React', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS'],
+    },
+    {
+      category: 'Backend & APIs',
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-500/10',
+      border: 'border-emerald-500/20',
+      skills: ['FastAPI', 'Node.js', 'SpringBoot', 'REST APIs', 'Microservices'],
+    },
+    {
+      category: 'AI & ML',
+      color: 'text-purple-400',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
+      skills: ['LLM', 'RAG', 'LangChain', 'LangGraph', 'Vector Databases', 'Generative AI', 'Prompt Engineering'],
+    },
+    {
+      category: 'Databases',
+      color: 'text-orange-400',
+      bg: 'bg-orange-500/10',
+      border: 'border-orange-500/20',
+      skills: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Vector DB'],
+    },
+    {
+      category: 'DevOps & Cloud',
+      color: 'text-sky-400',
+      bg: 'bg-sky-500/10',
+      border: 'border-sky-500/20',
+      skills: ['AWS', 'GCP', 'Docker', 'Kubernetes', 'Kafka', 'Git', 'Linux', 'CI/CD'],
+    },
   ];
 
   const education = [
     {
-      degree: 'Bachelor of Science in Programming and Data Science',
+      degree: 'B.Sc. in Programming and Data Science',
       institution: 'Indian Institute of Technology, Madras (IIT-M)',
-      year: '2022 - 2025',
+      year: '2022 – 2025',
+      cgpa: '8.50 / 10.00',
+      courses: ['Data Structures', 'Algorithms', 'OS', 'OOP', 'DBMS'],
       location: 'Chennai, India',
-      description: 'CGPA: 8.50/10.00. Courses: Operating Systems, Data Structures, Algorithms Analysis, Object-Oriented Programming, Database Management System.'
     },
     {
-      degree: 'Bachelor of Science in Mathematics and Science',
-      institution: 'Mahatma Jyotiba Phule Rohilkhand University, Bareilly',
-      year: '2020 - 2023',
-      location: 'Uttar Pradesh, India',
-      description: 'CGPA: 8.50/10.00. Courses: Physics, Discrete Mathematics, Statistics, Financial Mathematics.'
+      degree: 'B.Sc. in Mathematics and Science',
+      institution: 'Mahatma Jyotiba Phule Rohilkhand University',
+      year: '2020 – 2023',
+      cgpa: '8.50 / 10.00',
+      courses: ['Discrete Mathematics', 'Statistics', 'Physics', 'Financial Mathematics'],
+      location: 'Bareilly, UP',
     },
-
   ];
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-zinc-950 pt-24 pb-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Me</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            I'm a passionate Software Engineer with a strong foundation in full-stack development, workflow automation, and problem solving. I love building efficient, user-focused web applications and exploring new technologies.
+        <div className="reveal mb-16">
+          <p className="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-3">About</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Who I am</h1>
+          <p className="text-zinc-400 text-lg max-w-3xl leading-relaxed">
+            Software &amp; AI Engineer based in Bangalore, India. I bridge strong computer science fundamentals
+            with modern AI capabilities to build systems that actually ship and scale.
           </p>
         </div>
 
-        {/* Biography */}
-        <section className="mb-16">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h2>
-            <div className="prose prose-lg text-gray-600 max-w-none">
-              <p>
-                Hello! I'm Anmol Varshney, a software engineer based in Bangalore, India.
-                My journey into tech began with a deep curiosity about how things work and a love for
-                solving problems. I pursued a B.Sc. in Mathematics at Mahatma Jyotiba Phule Rohilkhand
-                University while self-learning programming, which eventually led me to the B.Sc. in
-                Programming & Data Science at IIT Madras. Along the way, I gained industry experience
-                at Samsung R&D Institute, where I worked on AI-driven context-aware systems for smart
-                devices, followed by building full-stack mental health platforms at Shridhar LifeSchool,
-                and am currently working as a Software Engineer at Lyzr AI, building production-grade
-                enterprise AI agent applications. These experiences taught me how to design LLM
-                orchestration pipelines, build scalable microservices, and deliver meaningful AI-powered
-                features to real users. Beyond work, I'm passionate about competitive programming —
-                achieving top national and global ranks — generative AI, AI agents, and workflow
-                automation. I love turning ideas into real, working products that make a difference.
-              </p>
-              </div>
-          </div>
-        </section>
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-20">
+          {/* Bio */}
+          <div className="reveal lg:col-span-3 space-y-5">
+            <h2 className="text-xl font-semibold text-white mb-5">My Story</h2>
+            <p className="text-zinc-400 leading-relaxed">
+              My journey started with a B.Sc. in Mathematics at Mahatma Jyotiba Phule Rohilkhand
+              University, where I taught myself programming out of curiosity. That curiosity led me to
+              the B.Sc. in Programming &amp; Data Science at IIT Madras, one of India top technical institutions.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              Since then, I have worked across three companies spanning AI-driven smart device systems at
+              Samsung R&amp;D, full-stack mental health platforms at Shridhar LifeSchool, and currently
+              building enterprise AI agent infrastructure at Lyzr AI using FastAPI, React, LangChain,
+              RAG, and multi-model LLM pipelines.
+            </p>
+            <p className="text-zinc-400 leading-relaxed">
+              Outside of work, I compete in coding contests globally, placing in the top 0.5% on
+              Codeforces and top 3% in Google Kickstart. I am passionate about generative AI, AI agents,
+              and building tools that make real impact.
+            </p>
 
-        {/* Education */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <GraduationCap className="mr-3 text-blue-600" size={28} />
-            Education
-          </h2>
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">{edu.degree}</h3>
-                  <span className="text-blue-600 font-medium">{edu.year}</span>
-                </div>
-                <div className="flex items-center text-gray-600 mb-2">
-                  <Award className="mr-2" size={16} />
-                  <span className="font-medium">{edu.institution}</span>
-                </div>
-                <div className="flex items-center text-gray-500 mb-3">
-                  <MapPin className="mr-2" size={16} />
-                  <span>{edu.location}</span>
-                </div>
-                <p className="text-gray-600">{edu.description}</p>
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex items-center gap-2 text-zinc-400 text-sm">
+                <MapPin size={14} className="text-indigo-400" />
+                Bangalore, India
               </div>
-            ))}
+              <div className="flex items-center gap-2 text-zinc-400 text-sm">
+                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                Open to opportunities
+              </div>
+            </div>
           </div>
-        </section>
 
-        {/* Technical Skills */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <Code className="mr-3 text-emerald-600" size={28} />
-            Technical Skills
-          </h2>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {skills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gray-50 px-4 py-3 rounded-lg text-center font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-default"
-                >
-                  {skill}
+          {/* Quick facts */}
+          <div className="reveal reveal-d2 lg:col-span-2">
+            <h2 className="text-xl font-semibold text-white mb-5">Quick Facts</h2>
+            <div className="space-y-3">
+              {[
+                { label: 'Current Role', value: 'SWE @ Lyzr AI' },
+                { label: 'Specialization', value: 'AI / Full-Stack' },
+                { label: 'Education', value: 'IIT Madras + MJPRU' },
+                { label: 'Location', value: 'Bangalore, India' },
+                { label: 'Languages', value: 'Python, TypeScript, Go' },
+                { label: 'Interests', value: 'AI Agents, Competitive CP' },
+              ].map((fact, i) => (
+                <div key={i} className="flex items-center justify-between py-3 border-b border-zinc-800/60">
+                  <span className="text-zinc-500 text-sm">{fact.label}</span>
+                  <span className="text-zinc-200 text-sm font-medium">{fact.value}</span>
                 </div>
               ))}
             </div>
-            
-            <div className="mt-8 pt-8 border-t border-gray-100">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Specializations</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Frontend Development</h4>
-                  <p className="text-gray-600 text-sm">
-                    React, Next.js, TypeScript, JavaScript, HTML, CSS
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Backend Development</h4>
-                  <p className="text-gray-600 text-sm">
-                    FastAPI, SpringBoot, Node.js, Python, Golang, REST APIs
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">AI & Machine Learning</h4>
-                  <p className="text-gray-600 text-sm">
-                    LLM, RAG, LangChain, LangGraph, Vector Databases, Generative AI
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">DevOps & Cloud</h4>
-                  <p className="text-gray-600 text-sm">
-                    AWS, GCP, Docker, Kubernetes, Kafka, Redis, Git, Linux
-                  </p>
+          </div>
+        </div>
+
+        {/* Skills */}
+        <div className="mb-20">
+          <p className="reveal text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-3">Technical Skills</p>
+          <h2 className="reveal reveal-d1 text-2xl font-bold text-white mb-8">What I work with</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {skillGroups.map((group, i) => (
+              <div
+                key={i}
+                onMouseMove={tiltOn}
+                onMouseLeave={tiltOff}
+                className={"tilt-card reveal bg-zinc-900 border rounded-2xl p-6 " + group.border}
+              >
+                <h3 className={"text-xs font-semibold tracking-wider uppercase mb-4 " + group.color}>
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill, j) => (
+                    <span
+                      key={j}
+                      className={
+                        "shimmer-tag text-xs px-2.5 py-1 rounded-md font-medium text-zinc-300 border border-zinc-700/50 cursor-default transition-colors duration-200 " +
+                        group.bg
+                      }
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+
+        {/* Education */}
+        <div>
+          <p className="reveal text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-3">Education</p>
+          <h2 className="reveal reveal-d1 text-2xl font-bold text-white mb-8">Academic Background</h2>
+          <div className="space-y-5">
+            {education.map((edu, i) => (
+              <div
+                key={i}
+                className="reveal bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-7 transition-all duration-200"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+                  <div>
+                    <h3 className="text-white font-semibold text-lg mb-1">{edu.degree}</h3>
+                    <div className="flex items-center gap-2 text-indigo-400 text-sm">
+                      <GraduationCap size={14} />
+                      {edu.institution}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start sm:items-end gap-1">
+                    <span className="flex items-center gap-1.5 text-zinc-400 text-sm">
+                      <Calendar size={12} />
+                      {edu.year}
+                    </span>
+                    <span className="text-emerald-400 font-semibold text-sm">CGPA {edu.cgpa}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-zinc-500 text-xs mb-4">
+                  <MapPin size={12} />
+                  {edu.location}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {edu.courses.map((c, j) => (
+                    <span key={j} className="text-xs px-2.5 py-1 bg-zinc-800 text-zinc-400 rounded-md border border-zinc-700/50">
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

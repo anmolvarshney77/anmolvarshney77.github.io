@@ -1,30 +1,28 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   const socialLinks = [
     { icon: Github, href: 'https://github.com/anmolvarshney77', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/anmolvarshney77', label: 'LinkedIn' },
-    // { icon: Twitter, href: 'https://twitter.com/anmolvarshney', label: 'Twitter' },
     { icon: Mail, href: 'https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com', label: 'Email' },
   ];
 
   return (
-    <footer className="bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-center md:text-left">
-            <p className="text-gray-600 text-sm">
-              © {currentYear} Anmol Varshney. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Built with React, TypeScript, and Tailwind CSS
-            </p>
+    <footer className="bg-zinc-950 border-t border-zinc-800/50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-md flex items-center justify-center">
+                <span className="text-white font-bold text-xs font-mono">AV</span>
+              </div>
+              <span className="text-white font-semibold text-sm">Anmol Varshney</span>
+            </div>
+            <p className="text-zinc-500 text-xs">Software & AI Engineer · Bangalore, India</p>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center gap-2">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -33,14 +31,18 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-50"
                   aria-label={link.label}
+                  className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:border-zinc-600 transition-all duration-200"
                 >
-                  <Icon size={20} />
+                  <Icon size={16} />
                 </a>
               );
             })}
           </div>
+
+          <p className="text-zinc-600 text-xs">
+            Built with React & Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>
