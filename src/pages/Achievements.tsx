@@ -10,18 +10,18 @@ const Achievements = () => {
       bgColor: 'bg-yellow-50',
       items: [
         {
-          title: 'CodeChef Programming Contest',
-          description: 'Achieved National Rank 16 in CodeChef contest in programming in Python',
+          title: 'IIT Madras Programming Competition',
+          description: 'Achieved National Rank 16 in the Programming Competition conducted by IIT Madras',
           date: '2022',
-          rank: 'Top 1%',
-          details: 'National ranking in top 16 among more than 800 students'
+          rank: 'National Rank 16',
+          details: 'Ranked 16th nationally among 8,000+ participants'
         },
         {
           title: 'Google Kick Start 2024 – Round E',
           description: 'Secured Global Rank 609 and India Rank 379 among 20,000+ participants',
           date: '2024',
           rank: 'Top 3%',
-          details: 'Achieved strong global performance in Google’s global coding competition'
+          details: 'Achieved strong global performance in Google global coding competition'
         },
         {
           title: 'Codeforces Global Contest',
@@ -68,18 +68,11 @@ const Achievements = () => {
       bgColor: 'bg-blue-50',
       items: [
         {
-          title: 'Top 5% Promising Developer',
-          description: 'Recognition for outstanding contribution to open source',
-          date: '2024',
-          rank: 'University Level',
-          details: 'Contributed to 15+ open source projects'
-        },
-        {
-          title: 'Student Impact Recognition – GeeksforGeeks',
-          description: 'Recognized for mentoring 1000+ students across multiple DSA courses',
-          date: '2024',
-          rank: 'Top Mentor',
-          details: 'Consistently rated highly for clear explanations, improving course engagement and completion rates'
+          title: 'Fellowship – Science and Technology Council, Uttar Pradesh',
+          description: 'Shortlisted for the Fellowship of Science and Technology Council, Uttar Pradesh',
+          date: '2020',
+          rank: 'Fellowship',
+          details: 'Shortlisted out of 50,000+ participants statewide'
         }
       ]
     },

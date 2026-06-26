@@ -30,8 +30,7 @@ const Home = () => {
                   </GradientText>
                 </h1>
                 <ShinyText
-                  text="Software Engineer & Full-Stack Developer passionate about building innovative 
-                  solutions and contributing to open-source projects."
+                  text="Software Engineer & Full-Stack AI Developer building enterprise AI agents, LLM orchestration pipelines, and scalable production applications."
                   disabled={false}
                   speed={5}
                   className="custom-class"
@@ -99,19 +98,19 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-blue-600">1+</div>
+              <div className="text-3xl font-bold text-blue-600">2+</div>
               <div className="text-gray-600">Years Experience</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-emerald-600">10+</div>
-              <div className="text-gray-600">Projects Completed</div>
+              <div className="text-3xl font-bold text-emerald-600">3+</div>
+              <div className="text-gray-600">Projects Shipped</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-purple-600">10+</div>
+              <div className="text-3xl font-bold text-purple-600">20+</div>
               <div className="text-gray-600">Technologies</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-orange-600">15+</div>
+              <div className="text-3xl font-bold text-orange-600">5+</div>
               <div className="text-gray-600">Achievements</div>
             </div>
           </div>
@@ -171,7 +170,7 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Experience</h3>
               <p className="text-gray-600">
-                Learn about my journey till now, what internship I have done till now and what i learnt out of it
+                From Samsung R&D to Lyzr AI — explore my professional journey in full-stack and AI engineering.
               </p>
             </Link>
           </div>

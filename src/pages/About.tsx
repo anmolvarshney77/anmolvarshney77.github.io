@@ -3,24 +3,25 @@ import { GraduationCap, Code, Award, MapPin } from 'lucide-react';
 
 const About = () => {
   const skills = [
-    'Python','React', 'Node.js', 'TypeScript' , 'TailWindCSS' , 'n8n', 'JSON',
-     'PostgreSQL', 'MySQL', 'Zapier', 'Git', 'Make'
+    'Python', 'Java', 'Golang', 'C++', 'C', 'JavaScript', 'TypeScript', 'SQL', 'HTML', 'Bash',
+    'FastAPI', 'SpringBoot', 'Node.js', 'React', 'Next.js', 'LangChain', 'LangGraph', 'LLM', 'RAG',
+    'MySQL', 'PostgreSQL', 'MongoDB', 'AWS', 'GCP', 'Docker', 'Kubernetes', 'Kafka', 'Redis', 'Git', 'Linux', 'n8n'
   ];
 
   const education = [
     {
-      degree: 'Bachelor of Science in Data Science and Programming',
-      institution: 'Indian Institute of Technology (IIT) Madras',
-      year: '2021 - 2025',
+      degree: 'Bachelor of Science in Programming and Data Science',
+      institution: 'Indian Institute of Technology, Madras (IIT-M)',
+      year: '2022 - 2025',
       location: 'Chennai, India',
-      description: 'Specialized in Software Engineering and Data Structures & Algorithms'
+      description: 'CGPA: 8.50/10.00. Courses: Operating Systems, Data Structures, Algorithms Analysis, Object-Oriented Programming, Database Management System.'
     },
     {
-      degree: 'Bachelor of Science in Mathematics',
-      institution: 'Mahila Jyotiba Phule Rohilkhand University',
+      degree: 'Bachelor of Science in Mathematics and Science',
+      institution: 'Mahatma Jyotiba Phule Rohilkhand University, Bareilly',
       year: '2020 - 2023',
       location: 'Uttar Pradesh, India',
-      description: 'Focused on core subjects like Mathematics, Physics, Chemistry, developed a strong foundation in analytical thinking and problem-solving.'
+      description: 'CGPA: 8.50/10.00. Courses: Physics, Discrete Mathematics, Statistics, Financial Mathematics.'
     },
 
   ];
@@ -42,21 +43,19 @@ const About = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h2>
             <div className="prose prose-lg text-gray-600 max-w-none">
               <p>
-                Hello! I'm Anmol Varshney, a software engineer based in India.
-                My journey into tech began with a deep curiosity about how things
-                work and a love for solving problems. I pursued a B.Sc. in Mathematics while self-learning
-                programming, which eventually led me to the B.Sc. in Programming & Data Science at IIT 
-                Madras.Along the way, I’ve interned at leading companies like Samsung R&D, HackerEarth,
-                and GeeksforGeeks, where I worked on real-world problems ranging from scalable backend 
-                systems to interactive learning platforms. These experiences taught me how to write clean,
-                efficient code, work in agile teams, and deliver meaningful features under tight deadlines.
-                Beyond work, I’m passionate about problem solving, workflow automation, and open-source contributions.
-                I actively participate in coding contests, achieving top national and global ranks, and enjoy
-                experimenting with tools like n8n, Zapier, and Docker to automate everyday tasks. Whether it’s building
-                web apps, visualizing OS algorithms, or designing smart systems, I love turning ideas into real, working
-                products.When I’m not coding, you’ll find me participating in programming contests, contributing to 
-                open-source projects, or exploring new technologies. I believe in continuous learning and in sharing knowledge
-                with the developer community.
+                Hello! I'm Anmol Varshney, a software engineer based in Bangalore, India.
+                My journey into tech began with a deep curiosity about how things work and a love for
+                solving problems. I pursued a B.Sc. in Mathematics at Mahatma Jyotiba Phule Rohilkhand
+                University while self-learning programming, which eventually led me to the B.Sc. in
+                Programming & Data Science at IIT Madras. Along the way, I gained industry experience
+                at Samsung R&D Institute, where I worked on AI-driven context-aware systems for smart
+                devices, followed by building full-stack mental health platforms at Shridhar LifeSchool,
+                and am currently working as a Software Engineer at Lyzr AI, building production-grade
+                enterprise AI agent applications. These experiences taught me how to design LLM
+                orchestration pipelines, build scalable microservices, and deliver meaningful AI-powered
+                features to real users. Beyond work, I'm passionate about competitive programming —
+                achieving top national and global ranks — generative AI, AI agents, and workflow
+                automation. I love turning ideas into real, working products that make a difference.
               </p>
               </div>
           </div>
@@ -113,25 +112,25 @@ const About = () => {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Frontend Development</h4>
                   <p className="text-gray-600 text-sm">
-                    React, TypeScript, Next.js, Tailwind CSS, JSON
+                    React, Next.js, TypeScript, JavaScript, HTML, CSS
                   </p>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Backend Development</h4>
                   <p className="text-gray-600 text-sm">
-                    Node.js, Python, n8n, Zapier, Make, REST APIs
+                    FastAPI, SpringBoot, Node.js, Python, Golang, REST APIs
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Database Management</h4>
+                  <h4 className="font-medium text-gray-900 mb-2">AI & Machine Learning</h4>
                   <p className="text-gray-600 text-sm">
-                    MySQL, PostgreSQL, database optimization
+                    LLM, RAG, LangChain, LangGraph, Vector Databases, Generative AI
                   </p>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">DevOps & Cloud</h4>
                   <p className="text-gray-600 text-sm">
-                    Git, Docker, CI/CD, cloud services (AWS, GCP)
+                    AWS, GCP, Docker, Kubernetes, Kafka, Redis, Git, Linux
                   </p>
                 </div>
               </div>

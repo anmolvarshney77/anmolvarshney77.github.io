@@ -1,71 +1,34 @@
 import React from 'react';
-import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Secure Complaint System',
-      description: 'A comprehensive web application for managing and tracking complaints with advanced security features, user authentication, and real-time notifications.',
-      longDescription: 'Built with React frontend and Node.js backend, this system features role-based access control, encrypted data storage, and automated workflow management.',
+      title: 'MCP Server – Resume Analyser',
+      description: 'A robust MCP server that automates resume analysis and communication workflows using LLM orchestration and multi-model inference.',
+      longDescription: 'Built a LLM-orchestrated resume parsing and semantic Q&A engine integrating multiple models for accurate skill, experience, and role-fit analysis from unstructured resumes. Includes secure RESTful APIs for email notifications and a React/Next.js playground for real-time evaluation.',
       image: 'https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Node.js', 'MongoDB', 'JWT', 'Socket.io', 'Material-UI'],
-      githubUrl: 'https://github.com/anmolvarshney/secure-complaint-system',
-      liveUrl: 'https://complaint-system-demo.vercel.app',
+      technologies: ['TypeScript', 'Node.js', 'React.js', 'Next.js', 'LLM APIs'],
+      githubUrl: 'https://github.com/anmolvarshney77',
       featured: true,
-      stats: { stars: 45, forks: 12 }
     },
     {
-      title: 'C-Share File Sharing Platform',
-      description: 'A modern file sharing platform with drag-and-drop uploads, secure file encryption, and time-limited access links.',
-      longDescription: 'Developed using Next.js and AWS S3, featuring real-time progress tracking, file preview capabilities, and advanced sharing controls.',
+      title: 'Trade Management Mobile Application',
+      description: 'A cross-platform commodity trade management app improving broker productivity with real-time trade execution and analytics.',
+      longDescription: 'Implemented real-time buy/sell trade execution with live P&L computation, inventory validation, and oversell prevention. Built a dynamic analytics dashboard and a reporting system to generate and export trade summaries in PDF and Excel formats for operational and compliance use.',
       image: 'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Next.js', 'AWS S3', 'PostgreSQL', 'TypeScript', 'Tailwind CSS', 'Prisma'],
-      githubUrl: 'https://github.com/anmolvarshney/c-share',
-      liveUrl: 'https://c-share-platform.vercel.app',
+      technologies: ['React Native', 'Expo', 'TypeScript'],
+      githubUrl: 'https://github.com/anmolvarshney77',
       featured: true,
-      stats: { stars: 32, forks: 8 }
     },
     {
-      title: 'Linux Shell Implementation',
-      description: 'A custom Unix shell implementation with advanced features like command history, tab completion, and process management.',
-      longDescription: 'Written in C, this shell supports piping, redirection, background processes, and custom built-in commands with memory-efficient design.',
-      image: 'https://images.pexels.com/photos/270557/pexels-photo-270557.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['C', 'Linux', 'System Calls', 'Process Management', 'Memory Management'],
-      githubUrl: 'https://github.com/anmolvarshney/linux-shell',
-      featured: false,
-      stats: { stars: 28, forks: 15 }
-    },
-    {
-      title: 'OS Algorithms Visualizer',
-      description: 'Interactive web application for visualizing operating system algorithms including scheduling, memory management, and disk algorithms.',
-      longDescription: 'Educational tool built with React and D3.js, featuring step-by-step algorithm execution, customizable parameters, and performance metrics.',
-      image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'D3.js', 'JavaScript', 'CSS3', 'Chart.js'],
-      githubUrl: 'https://github.com/anmolvarshney/os-algorithms-visualizer',
-      liveUrl: 'https://os-algo-visualizer.vercel.app',
-      featured: false,
-      stats: { stars: 67, forks: 23 }
-    },
-    {
-      title: 'Task Management API',
-      description: 'RESTful API for task management with user authentication, team collaboration, and real-time updates.',
-      longDescription: 'Built with Express.js and MongoDB, featuring comprehensive API documentation, rate limiting, and comprehensive testing suite.',
-      image: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['Express.js', 'MongoDB', 'JWT', 'Swagger', 'Jest', 'Docker'],
-      githubUrl: 'https://github.com/anmolvarshney/task-api',
-      featured: false,
-      stats: { stars: 19, forks: 7 }
-    },
-    {
-      title: 'E-Commerce Analytics Dashboard',
-      description: 'Real-time analytics dashboard for e-commerce platforms with interactive charts and business intelligence features.',
-      longDescription: 'Developed using React and Python backend, featuring data visualization, predictive analytics, and automated reporting.',
+      title: 'MarketMind AI – Financial Sentiment Intelligence',
+      description: 'A real-time sentiment analysis platform processing multi-source financial data streams with AI-powered insights and interactive visualizations.',
+      longDescription: 'Built using Python, MongoDB, and Google Cloud with context-aware RAG-style retrieval pipelines to enrich sentiment analysis with historical and contextual market data. Features an interactive analytics UI with React, Next.js, and D3.js visualizing sentiment trends and AI-generated market insights.',
       image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-      technologies: ['React', 'Python', 'Flask', 'PostgreSQL', 'Chart.js', 'Redis'],
-      githubUrl: 'https://github.com/anmolvarshney/ecommerce-dashboard',
-      liveUrl: 'https://ecommerce-analytics.vercel.app',
+      technologies: ['FastAPI', 'VectorDB', 'MongoDB', 'GCP', 'React', 'Next.js', 'D3.js', 'Python'],
+      githubUrl: 'https://github.com/anmolvarshney77',
       featured: false,
-      stats: { stars: 41, forks: 11 }
     }
   ];
 
@@ -102,16 +65,6 @@ const Projects = () => {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                    <div className="flex items-center space-x-4 text-sm text-gray-500">
-                      <div className="flex items-center">
-                        <Star size={14} className="mr-1" />
-                        {project.stats.stars}
-                      </div>
-                      <div className="flex items-center">
-                        <GitFork size={14} className="mr-1" />
-                        {project.stats.forks}
-                      </div>
-                    </div>
                   </div>
                   
                   <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
@@ -171,16 +124,6 @@ const Projects = () => {
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-lg font-semibold text-gray-900">{project.title}</h3>
-                    <div className="flex items-center space-x-3 text-xs text-gray-500">
-                      <div className="flex items-center">
-                        <Star size={12} className="mr-1" />
-                        {project.stats.stars}
-                      </div>
-                      <div className="flex items-center">
-                        <GitFork size={12} className="mr-1" />
-                        {project.stats.forks}
-                      </div>
-                    </div>
                   </div>
                   
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">{project.description}</p>

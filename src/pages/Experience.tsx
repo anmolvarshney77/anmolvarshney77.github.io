@@ -4,48 +4,47 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Software Engineer Intern',
-      company: 'HackerEarth',
-      type: 'Internship',
-      location: 'Remote',
-      period: 'August 2024 - February 2025',
-      description: 'Contributed to the Frontend and backend systems of HackerEarth’s coding assessment platform, focusing on improving performance and reliability. Collaborated with the product team to build new features and resolve real-time issueselopment of enterprise web applications using React and Node.js.',
-      achievements: ['Improved API response times by optimizing backend service architecture.',
-        'Implemented a new feature for real-time code evaluation, enhancing user experience.',
-        'Successfully delivered key features for the test evaluation module, enhancing recruiter analytics.',
-        'Participated in code reviews and contributed to the development of best practices.'
-        ],
-      technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Git']
+      title: 'Software Engineer – Fullstack + AI',
+      company: 'Lyzr AI',
+      type: 'Full-time',
+      location: 'Bangalore, India',
+      period: 'Mar 2025 – Present',
+      description: 'Building and scaling production-grade fullstack applications for enterprise AI agents, integrating multi-model LLM support and orchestration pipelines to power real-world business workflows.',
+      achievements: [
+        'Built production-grade fullstack apps for enterprise AI agents using FastAPI, PostgreSQL, React.js, and Next.js, integrating multi-model support (OpenAI, Anthropic) for seamless LLM-powered workflow deployment.',
+        'Designed and implemented LLM orchestration pipelines leveraging LangChain, RAG architectures, and vector databases, improving response relevance and reducing hallucinations in enterprise use cases.',
+        'Developed modular AI agent frameworks to automate business workflows (customer support, document processing, analytics) with secure API layers and microservices.',
+        'Collaborated with product and AI teams to translate business requirements into deployable AI solutions, accelerating customer onboarding and feature delivery.'
+      ],
+      technologies: ['FastAPI', 'PostgreSQL', 'React.js', 'Next.js', 'LangChain', 'RAG', 'OpenAI', 'Anthropic', 'Python', 'Docker']
     },
     {
-      title: 'Teaching Assistant',
-      company: 'GeeksforGeeks',
-      type: 'Internship',
+      title: 'Software Engineer',
+      company: 'Shridhar LifeSchool',
+      type: 'Full-time',
       location: 'Remote',
-      period: 'Mar 2024 - July 2024',
-      description: 'Conducted doubt-solving sessions in Python,SQL, live problem-solving classes, and helped students strengthen their understanding of code writing and help them writing queries in SQL using MySQL.',
+      period: 'Sep 2024 – Mar 2025',
+      description: 'Built a scalable full-stack mental health platform supporting therapy workflows, AI-assisted journaling, situation tracking, and card-based therapy exercises with user management and system analytics.',
       achievements: [
-        'Mentored 300+ students through hands-on coding and practical explanations.',
-        'Created engaging learning materials and quizzes to enhance understanding.',
-        'Organized weekly coding challenges to foster a competitive learning environment.',
-        'Consistently rated highly for most approachable mentoring style.'
+        'Built a scalable full-stack platform using FastAPI and PostgreSQL with role-based authentication supporting therapy workflows such as AI-assisted journaling and card-based therapy exercises.',
+        'Designed LLM-powered features to analyze diary entries and therapy interactions, enabling context-aware insights and personalized therapeutic recommendations using prompt engineering and RAG techniques.',
+        'Implemented AI-ready data pipelines and modular services to support CRM workflows for therapy resources and user history.'
       ],
-      technologies: ['Python', 'MySQL', 'SQL', 'Git']
+      technologies: ['FastAPI', 'PostgreSQL', 'LLM', 'RAG', 'Python', 'Prompt Engineering']
     },
     {
       title: 'Software Engineer Intern',
       company: 'Samsung R&D Institute (SRI-B)',
       type: 'Internship',
       location: 'Remote',
-      period: 'Sep 2023 - Feb 2024',
-      description: 'Worked on the automation team to develop internal tools that streamlined debugging and analytics for Samsung devices.',
+      period: 'Sep 2023 – Feb 2024',
+      description: 'Worked on AI-driven context-aware systems to improve smart device responsiveness using user and environmental signals.',
       achievements: [
-        'Developed a shell-based automation tool that reduced debugging time by over 60%.',
-        'Enhanced log analysis workflows by writing efficient Python scripts.',
-        'Participated in daily standups and sprint planning',
-        'Received excellent feedback from team leads'
+        'Analyzed device telemetry data to optimize ML models for better contextual understanding and adaptive intelligence.',
+        'Built continuous learning pipelines to adapt AI models over time while ensuring strict privacy-preserving data handling.',
+        'Collaborated with hardware and firmware teams to integrate intelligent AI models into real-world smart device ecosystems.'
       ],
-      technologies: ['Python', 'Linux', 'MySQL', 'Git']
+      technologies: ['Python', 'Machine Learning', 'Linux', 'Data Pipelines', 'Git']
     }
   ];
 
@@ -56,7 +55,7 @@ const Experience = () => {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Professional Experience</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-           My journey through multiple software engineering internships has equipped me with hands-on experience in backend development, automation, and technical mentoring — with key contributions across companies like Samsung R&D, HackerEarth, and GeeksforGeeks.
+           My journey from an intern at Samsung R&D to a full-stack AI engineer has equipped me with hands-on experience across the full software stack — from building AI-driven systems and LLM orchestration pipelines to delivering scalable production applications for enterprise clients.
           </p>
         </div>
 
