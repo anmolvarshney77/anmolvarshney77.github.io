@@ -1,15 +1,54 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Github, Linkedin, Mail, Brain, Code2, Zap } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useTypingAnimation } from '../hooks/useTypingAnimation';
+import NeuralBackground from '../components/NeuralBackground';
+import AnimatedStat from '../components/AnimatedStat';
 
 const RESUME_URL = 'https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing';
 const PHOTO_URL  = 'https://i.postimg.cc/8z1GvdTB/picofme-3.png';
 
+// ── MagneticWrapper ─────────────────────────────────────────────
+const MagneticWrapper: React.FC<{ children: React.ReactNode; strength?: number }> = ({
+  children,
+  strength = 0.26,
+}) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width  / 2) * strength;
+    const y = (e.clientY - r.top  - r.height / 2) * strength;
+    ref.current.style.transform  = `translate(${x}px, ${y}px)`;
+    ref.current.style.transition = 'transform 0.1s ease-out';
+  };
+
+  const onLeave = () => {
+    if (!ref.current) return;
+    ref.current.style.transform  = '';
+    ref.current.style.transition = 'transform 0.45s cubic-bezier(0.23,1,0.32,1)';
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="magnetic"
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+    >
+      {children}
+    </div>
+  );
+};
+
+
+// ── Data ──────────────────────────────────────────────────────────
 const stats = [
-  { value: '2+',    label: 'Years Experience' },
-  { value: '3+',    label: 'Production Apps'  },
-  { value: '20+',   label: 'Technologies'     },
+  { value: '2+',     label: 'Years Experience' },
+  { value: '3+',     label: 'Production Apps'  },
+  { value: '20+',    label: 'Technologies'     },
   { value: 'Top 1%', label: 'Competitive Rank' },
 ];
 
@@ -32,15 +71,15 @@ const highlights = [
 ];
 
 const navCards = [
-  { to: '/about',        title: 'About Me',     desc: 'Background, skills, education'   },
-  { to: '/experience',   title: 'Experience',   desc: 'Lyzr AI, Shridhar, Samsung'      },
-  { to: '/achievements', title: 'Achievements', desc: 'Competitions, certifications'     },
+  { to: '/about',        title: 'About Me',     desc: 'Background, skills, education'  },
+  { to: '/experience',   title: 'Experience',   desc: 'Lyzr AI, Shridhar, Samsung'     },
+  { to: '/achievements', title: 'Achievements', desc: 'Competitions, certifications'    },
 ];
 
 const socials = [
-  { href: 'https://github.com/anmolvarshney77',                                       Icon: Github,   label: 'GitHub'   },
-  { href: 'https://linkedin.com/in/anmolvarshney77',                                  Icon: Linkedin, label: 'LinkedIn' },
-  { href: 'https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com',     Icon: Mail,     label: 'Email'    },
+  { href: 'https://github.com/anmolvarshney77',                                   Icon: Github,   label: 'GitHub'   },
+  { href: 'https://linkedin.com/in/anmolvarshney77',                              Icon: Linkedin, label: 'LinkedIn' },
+  { href: 'https://mail.google.com/mail/?view=cm&to=varshney.anmol.29@gmail.com', Icon: Mail,     label: 'Email'    },
 ];
 
 function tiltOn(e: React.MouseEvent<HTMLDivElement>) {
@@ -54,16 +93,21 @@ function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
   e.currentTarget.style.transform = '';
 }
 
+// ── Component ─────────────────────────────────────────────────────
 const Home = () => {
   useScrollReveal();
+  const { displayed, cursorOn } = useTypingAnimation();
 
   return (
     <div className="min-h-screen bg-zinc-950">
 
-      {/* ── Hero ──────────────────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
 
-        {/* Ambient background */}
+        {/* Neural network canvas */}
+        <NeuralBackground />
+
+        {/* Ambient blobs */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 -left-24 w-[520px] h-[520px] bg-indigo-600/8 rounded-full blur-3xl" />
           <div className="absolute bottom-1/4 -right-24 w-[420px] h-[420px] bg-purple-600/8 rounded-full blur-3xl" />
@@ -82,7 +126,7 @@ const Home = () => {
           {/* Two-column hero */}
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16 lg:mb-20">
 
-            {/* ── Left: Text ── */}
+            {/* Left: Text */}
             <div className="order-2 lg:order-1">
 
               <div className="reveal inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-500/10 border border-indigo-500/20 rounded-full mb-8">
@@ -90,7 +134,7 @@ const Home = () => {
                 <span className="text-indigo-300 text-xs font-medium tracking-wide">Open to opportunities</span>
               </div>
 
-              <h1 className="reveal reveal-d1 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
+              <h1 className="reveal reveal-d1 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-4">
                 Hi, I am{' '}
                 <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   Anmol
@@ -99,8 +143,19 @@ const Home = () => {
                 <span className="text-zinc-300 text-3xl sm:text-4xl lg:text-5xl font-semibold">Varshney</span>
               </h1>
 
+              {/* Typing animation */}
+              <div className="reveal reveal-d2 mb-6 h-8 flex items-center">
+                <span className="font-mono text-lg text-indigo-400 font-medium">
+                  {displayed}
+                  <span
+                    className="inline-block ml-0.5 w-0.5 h-5 bg-indigo-400 align-middle"
+                    style={{ opacity: cursorOn ? 1 : 0, transition: 'opacity 0.1s' }}
+                  />
+                </span>
+              </div>
+
               <p className="reveal reveal-d2 text-zinc-400 text-lg leading-relaxed mb-8 max-w-xl">
-                Software &amp; AI Engineer building{' '}
+                Building{' '}
                 <span className="text-white font-medium">enterprise AI agents</span>,{' '}
                 <span className="text-white font-medium">LLM orchestration pipelines</span>, and{' '}
                 <span className="text-white font-medium">full-stack production systems</span>{' '}
@@ -108,22 +163,27 @@ const Home = () => {
               </p>
 
               <div className="reveal reveal-d3 flex flex-wrap gap-4 mb-10">
-                <Link
-                  to="/projects"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
-                >
-                  View Projects
-                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-                </Link>
-                <a
-                  href={RESUME_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-                >
-                  <Download size={16} />
-                  Resume
-                </a>
+                <MagneticWrapper>
+                  <Link
+                    to="/projects"
+                    className="group inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition-all duration-200 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5"
+                  >
+                    View Projects
+                    <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+                  </Link>
+                </MagneticWrapper>
+
+                <MagneticWrapper>
+                  <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-zinc-600 text-zinc-200 font-medium rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+                  >
+                    <Download size={16} />
+                    Resume
+                  </a>
+                </MagneticWrapper>
               </div>
 
               <div className="reveal reveal-d4 flex items-center gap-4">
@@ -145,15 +205,19 @@ const Home = () => {
               </div>
             </div>
 
-            {/* ── Right: Profile Photo ── */}
+            {/* Right: Profile Photo */}
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="relative group">
 
                 {/* Deep ambient glow */}
                 <div className="absolute inset-[-20%] rounded-full bg-gradient-to-br from-indigo-600/30 via-purple-600/20 to-cyan-600/15 blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-700" />
 
-                {/* Floating wrapper */}
+                {/* Floating + photo wrapper */}
                 <div className="animate-float relative">
+
+                  {/* Pulse rings */}
+                  <div className="absolute inset-0 rounded-full border border-indigo-500/25 animate-ping-slow" />
+                  <div className="absolute inset-0 rounded-full border border-purple-500/15 animate-ping-slower" />
 
                   {/* Animated gradient ring */}
                   <div className="gradient-border-animated p-[3px] rounded-full shadow-2xl shadow-indigo-500/20 group-hover:shadow-indigo-500/35 transition-shadow duration-700">
@@ -193,16 +257,15 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Stats bar */}
+          {/* Stats bar with count-up */}
           <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800/50 rounded-2xl overflow-hidden border border-zinc-800/50">
             {stats.map((stat, i) => (
-              <div
+              <AnimatedStat
                 key={i}
+                value={stat.value}
+                label={stat.label}
                 className="bg-zinc-900/80 px-6 py-6 flex flex-col hover:bg-zinc-900 transition-colors duration-200 cursor-default"
-              >
-                <span className="text-2xl font-bold text-white mb-1">{stat.value}</span>
-                <span className="text-zinc-500 text-sm">{stat.label}</span>
-              </div>
+              />
             ))}
           </div>
         </div>

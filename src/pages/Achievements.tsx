@@ -1,6 +1,7 @@
 import React from 'react';
 import { Trophy, Zap, Award, Medal, Star } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import AnimatedStat from '../components/AnimatedStat';
 
 const Achievements = () => {
   useScrollReveal();
@@ -129,18 +130,20 @@ const Achievements = () => {
           </p>
         </div>
 
-        {/* Summary bar */}
+        {/* Summary bar with count-up */}
         <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-800/50 rounded-2xl overflow-hidden border border-zinc-800/50 mb-16">
           {[
-            { value: 'Top 0.5%', label: 'Global Rank (CF)' },
-            { value: 'Rank 16',  label: 'National (IIT-M)' },
-            { value: '4+',       label: 'Hackathons'       },
-            { value: '2',        label: 'GCP Certifications'},
+            { value: 'Top 0.5%', label: 'Global Rank (CF)'  },
+            { value: 'Rank 16',  label: 'National (IIT-M)'  },
+            { value: '4+',       label: 'Hackathons'        },
+            { value: '2',        label: 'GCP Certifications' },
           ].map((stat, i) => (
-            <div key={i} className="bg-zinc-900/80 px-6 py-6">
-              <div className="text-xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-zinc-500 text-sm">{stat.label}</div>
-            </div>
+            <AnimatedStat
+              key={i}
+              value={stat.value}
+              label={stat.label}
+              className="bg-zinc-900/80 px-6 py-6 flex flex-col cursor-default"
+            />
           ))}
         </div>
 

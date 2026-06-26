@@ -101,7 +101,7 @@ const About = () => {
             <p className="text-zinc-400 leading-relaxed">
               My journey started with a B.Sc. in Mathematics at Mahatma Jyotiba Phule Rohilkhand
               University, where I taught myself programming out of curiosity. That curiosity led me to
-              the B.Sc. in Programming &amp; Data Science at IIT Madras, one of India top technical institutions.
+              the B.Sc. in Programming &amp; Data Science at IIT Madras, one of India's top technical institutions.
             </p>
             <p className="text-zinc-400 leading-relaxed">
               Since then, I have worked across three companies spanning AI-driven smart device systems at
@@ -159,6 +159,7 @@ const About = () => {
                 onMouseMove={tiltOn}
                 onMouseLeave={tiltOff}
                 className={"tilt-card reveal bg-zinc-900 border rounded-2xl p-6 " + group.border}
+                style={{ transitionDelay: `${i * 0.07}s` }}
               >
                 <h3 className={"text-xs font-semibold tracking-wider uppercase mb-4 " + group.color}>
                   {group.category}
@@ -189,7 +190,8 @@ const About = () => {
             {education.map((edu, i) => (
               <div
                 key={i}
-                className="reveal bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-7 transition-all duration-200"
+                className="reveal bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-7 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
+                style={{ transitionDelay: `${i * 0.10}s` }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
                   <div>
