@@ -26,9 +26,7 @@ const initialPosts: BlogPost[] = [
   {
     id: '1',
     title: 'Building Production-Ready RAG Pipelines: What Actually Works',
-    content: `# Building Production-Ready RAG Pipelines: What Actually Works
-
-After deploying RAG systems for enterprise clients at Lyzr AI, I've found that the gap between a demo RAG pipeline and one that survives production load is wider than most tutorials suggest. This post distills the key architectural decisions that actually matter.
+    content: `After deploying RAG systems for enterprise clients at Lyzr AI, I've found that the gap between a demo RAG pipeline and one that survives production load is wider than most tutorials suggest. This post distills the key architectural decisions that actually matter.
 
 ## The Core Problem with Naive RAG
 
@@ -116,9 +114,7 @@ The teams that ship reliable RAG systems are the ones treating it like software 
   {
     id: '2',
     title: 'LangGraph for AI Agents: Moving Beyond Linear Chains',
-    content: `# LangGraph for AI Agents: Moving Beyond Linear Chains
-
-LangChain chains are great for deterministic pipelines. But real-world AI agents need branching logic, loops, shared state, and the ability to recover from partial failures. LangGraph solves this by modeling agent execution as a stateful graph. Here's how I've used it in production at Lyzr AI.
+    content: `LangChain chains are great for deterministic pipelines. But real-world AI agents need branching logic, loops, shared state, and the ability to recover from partial failures. LangGraph solves this by modeling agent execution as a stateful graph. Here's how I've used it in production at Lyzr AI.
 
 ## Why Graphs Beat Chains for Complex Agents
 
@@ -238,9 +234,7 @@ LangGraph shifts the mental model from "prompt chain" to "stateful process" — 
   {
     id: '3',
     title: 'FastAPI + PostgreSQL at Scale: Patterns I Wish I Knew Earlier',
-    content: `# FastAPI + PostgreSQL at Scale: Patterns I Wish I Knew Earlier
-
-FastAPI is genuinely great — fast to write, fast to run, great type hints. But defaults that work fine in a tutorial application start causing silent performance problems at production scale. Here are the patterns that made the biggest difference in my work at Lyzr AI and Shridhar LifeSchool.
+    content: `FastAPI is genuinely great — fast to write, fast to run, great type hints. But defaults that work fine in a tutorial application start causing silent performance problems at production scale. Here are the patterns that made the biggest difference in my work at Lyzr AI and Shridhar LifeSchool.
 
 ## Connection Pooling: The Non-Obvious Default
 

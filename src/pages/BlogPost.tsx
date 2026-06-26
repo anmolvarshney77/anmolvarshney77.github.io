@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, Share2, Tag } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
+import { marked } from 'marked';
 import { useBlog } from '../context/BlogContext';
+
+// Enable GitHub-flavoured Markdown with line-break support
+marked.use({ breaks: true, gfm: true });
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,6 +15,8 @@ const BlogPost = () => {
 
   const post = getPost(id);
   if (!post || !post.published) return <Navigate to="/blog" replace />;
+
+  const htmlContent = useMemo(() => marked.parse(post.content) as string, [post.content]);
 
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -84,7 +90,7 @@ const BlogPost = () => {
 
         {/* Article content */}
         <article className="blog-content">
-          <div dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, '<br>') }} />
+          <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
         </article>
 
         {/* Article footer */}

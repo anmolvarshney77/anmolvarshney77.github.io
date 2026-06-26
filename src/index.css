@@ -46,16 +46,66 @@
 .reveal-d4         { transition-delay: 0.34s; }
 .reveal-d5         { transition-delay: 0.42s; }
 
-/* ── Animated gradient border (profile photo ring) ───────────── */
-@keyframes gradient-border-spin {
-  0%   { background-position: 0%   50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0%   50%; }
+/* ── Profile photo: entrance (scale + fade up) ───────────────── */
+.photo-entrance {
+  opacity: 0;
+  transform: translateY(18px) scale(0.92);
+  transition: opacity 0.88s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.88s cubic-bezier(0.34, 1.15, 0.64, 1);
+  will-change: opacity, transform;
 }
-.gradient-border-animated {
-  background: linear-gradient(270deg, #6366f1, #a855f7, #22d3ee, #ec4899, #6366f1);
-  background-size: 400% 400%;
-  animation: gradient-border-spin 5s ease infinite;
+.photo-entrance-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* ── Profile photo: proximity glow ──────────────────────────── */
+.proximity-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99, 102, 241, 0.90),
+    rgba(168, 85, 247, 0.45) 40%,
+    transparent 70%
+  );
+  filter: blur(52px);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+  will-change: opacity, transform;
+}
+
+/* ── Profile photo: rotating conic border ────────────────────── */
+@keyframes conic-spin {
+  to { transform: rotate(360deg); }
+}
+.rotating-conic {
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.82) 18%,
+    rgba(168, 85, 247, 0.70) 33%,
+    rgba(34, 211, 238, 0.50) 50%,
+    transparent 65%
+  );
+  animation: conic-spin 8s linear infinite;
+  will-change: transform;
+}
+
+/* ── Profile photo: shimmer sweep (periodic, non-distracting) ── */
+@keyframes shimmer-pass {
+  0%, 72%  { transform: translateX(-130%) skewX(-12deg); opacity: 0; }
+  76%       { transform: translateX(-130%) skewX(-12deg); opacity: 1; }
+  92%       { transform: translateX(200%)  skewX(-12deg); opacity: 1; }
+  96%, 100% { transform: translateX(200%)  skewX(-12deg); opacity: 0; }
+}
+.shimmer-sweep {
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 44%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.075) 50%,
+    transparent 100%
+  );
+  animation: shimmer-pass 9s ease-in-out infinite;
 }
 
 /* ── Floating badges ─────────────────────────────────────────── */
@@ -102,18 +152,6 @@
   border-color: rgba(99,102,241,0.4);
   color: #c7d2fe;
 }
-
-/* ── Ping rings (for photo glow) ─────────────────────────────── */
-@keyframes ping-slow {
-  0%        { transform: scale(1); opacity: 0.55; }
-  75%, 100% { transform: scale(1.18); opacity: 0; }
-}
-@keyframes ping-slower {
-  0%        { transform: scale(1); opacity: 0.35; }
-  75%, 100% { transform: scale(1.30); opacity: 0; }
-}
-.animate-ping-slow   { animation: ping-slow   2.8s cubic-bezier(0,0,0.2,1) infinite; }
-.animate-ping-slower { animation: ping-slower 3.8s cubic-bezier(0,0,0.2,1) infinite 0.6s; }
 
 /* ── Magnetic button ─────────────────────────────────────────── */
 .magnetic { will-change: transform; display: inline-block; }
@@ -226,6 +264,9 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .reveal      { opacity: 1 !important; transform: none !important; }
-  .animate-page-in { animation: none; }
+  .reveal           { opacity: 1 !important; transform: none !important; }
+  .animate-page-in  { animation: none; }
+  .photo-entrance   { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .rotating-conic   { animation: none !important; }
+  .shimmer-sweep    { animation: none !important; }
 }

@@ -18,6 +18,13 @@ import NotFound from './pages/NotFound';
 import { BlogProvider } from './context/BlogContext';
 import { AdminProvider } from './context/AdminContext';
 
+// Scroll to top on every route change
+function RouteScrollReset() {
+  const location = useLocation();
+  React.useEffect(() => { window.scrollTo(0, 0); }, [location.pathname]);
+  return null;
+}
+
 // Page transition wrapper — key change re-mounts this div, triggering CSS enter animation
 function PageWrapper({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -38,6 +45,7 @@ function AppContent() {
       >
         Skip to main content
       </a>
+      <RouteScrollReset />
       <CustomCursor />
       <ScrollProgress />
       <Navbar />
@@ -67,7 +75,7 @@ function App() {
   return (
     <AdminProvider>
       <BlogProvider>
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <AppContent />
         </Router>
       </BlogProvider>

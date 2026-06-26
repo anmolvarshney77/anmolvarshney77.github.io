@@ -5,9 +5,9 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
 import NeuralBackground from '../components/NeuralBackground';
 import AnimatedStat from '../components/AnimatedStat';
+import ProfilePhotoCard from '../components/ProfilePhotoCard';
 
 const RESUME_URL = 'https://drive.google.com/file/d/1cbDtCC2ZM4a_K5baHD-Vmz9Cq8FjCxJo/view?usp=sharing';
-const PHOTO_URL  = 'https://i.postimg.cc/8z1GvdTB/picofme-3.png';
 
 // ── MagneticWrapper ─────────────────────────────────────────────
 const MagneticWrapper: React.FC<{ children: React.ReactNode; strength?: number }> = ({
@@ -104,6 +104,7 @@ function tiltOff(e: React.MouseEvent<HTMLDivElement>) {
 const Home = () => {
   useScrollReveal();
   const { displayed, cursorOn } = useTypingAnimation();
+
 
   return (
     <div className="min-h-screen bg-zinc-950">
@@ -213,54 +214,8 @@ const Home = () => {
             </div>
 
             {/* Right: Profile Photo */}
-            <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="relative group">
-
-                {/* Deep ambient glow */}
-                <div className="absolute inset-[-20%] rounded-full bg-gradient-to-br from-indigo-600/30 via-purple-600/20 to-cyan-600/15 blur-3xl opacity-50 group-hover:opacity-75 transition-opacity duration-700" />
-
-                {/* Floating + photo wrapper */}
-                <div className="animate-float relative">
-
-                  {/* Pulse rings */}
-                  <div className="absolute inset-0 rounded-full border border-indigo-500/25 animate-ping-slow" />
-                  <div className="absolute inset-0 rounded-full border border-purple-500/15 animate-ping-slower" />
-
-                  {/* Animated gradient ring */}
-                  <div className="gradient-border-animated p-[3px] rounded-full shadow-2xl shadow-indigo-500/20 group-hover:shadow-indigo-500/35 transition-shadow duration-700">
-                    <div className="rounded-full bg-zinc-950 p-1">
-                      <img
-                        src={PHOTO_URL}
-                        alt="Anmol Varshney"
-                        className="w-60 h-60 lg:w-72 lg:h-72 rounded-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
-                        onError={(e) => {
-                          e.currentTarget.src =
-                            'https://ui-avatars.com/api/?name=Anmol+Varshney&background=6366f1&color=fff&size=300';
-                        }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Floating badge: current role */}
-                  <div className="badge-float-2 absolute -bottom-1 -right-4 lg:-right-8 bg-zinc-900/95 backdrop-blur-sm border border-zinc-700 rounded-xl px-3 py-2 shadow-xl">
-                    <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                      <span className="text-white text-xs font-semibold">SWE @ Lyzr AI</span>
-                    </div>
-                  </div>
-
-                  {/* Floating badge: location */}
-                  <div className="badge-float-3 absolute -top-1 -left-4 lg:-left-8 bg-zinc-900/95 backdrop-blur-sm border border-zinc-700 rounded-xl px-3 py-2 shadow-xl">
-                    <span className="text-zinc-300 text-xs font-medium">Bangalore, IN</span>
-                  </div>
-
-                  {/* Floating badge: IIT Madras */}
-                  <div className="badge-float absolute top-1/2 -translate-y-1/2 -right-2 lg:-right-12 bg-indigo-600/15 backdrop-blur-sm border border-indigo-500/30 rounded-xl px-3 py-2 shadow-xl hidden lg:block">
-                    <span className="text-indigo-300 text-xs font-medium">IIT Madras</span>
-                  </div>
-
-                </div>
-              </div>
+            <div className="order-1 lg:order-2 flex justify-center">
+              <ProfilePhotoCard />
             </div>
           </div>
 
