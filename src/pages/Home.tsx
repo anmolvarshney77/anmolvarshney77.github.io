@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Github, Linkedin, Mail, Brain, Code2, Zap } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
-import NeuralBackground from '../components/NeuralBackground';
+import GalaxyBackground from '../components/GalaxyBackground';
 import AnimatedStat from '../components/AnimatedStat';
 import ProfilePhotoCard from '../components/ProfilePhotoCard';
 import { RESUME_URL } from '../constants';
@@ -57,16 +57,19 @@ const highlights = [
     icon: Brain, title: 'AI Engineering',
     desc: 'LLM orchestration, RAG pipelines, multi-agent frameworks',
     color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20',
+    cardClass: 'highlight-card highlight-card-purple',
   },
   {
     icon: Code2, title: 'Full-Stack Development',
     desc: 'FastAPI, React, Next.js, PostgreSQL, microservices',
     color: 'text-indigo-400', bg: 'bg-indigo-500/10', border: 'border-indigo-500/20',
+    cardClass: 'highlight-card highlight-card-indigo',
   },
   {
     icon: Zap, title: 'Systems & Cloud',
     desc: 'Docker, Kubernetes, AWS, GCP, Kafka, Redis',
     color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20',
+    cardClass: 'highlight-card highlight-card-cyan',
   },
 ];
 
@@ -102,16 +105,17 @@ const Home = () => {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
 
-        {/* Neural network canvas */}
-        <NeuralBackground />
+        {/* Galaxy canvas — stars, shooting stars, constellation, data particles */}
+        <GalaxyBackground />
 
-        {/* Ambient blobs */}
+        {/* Nebula ambient layers */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-24 w-[520px] h-[520px] bg-indigo-600/8 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -right-24 w-[420px] h-[420px] bg-purple-600/8 rounded-full blur-3xl" />
-          <div className="absolute top-3/4 left-1/3 w-[300px] h-[300px] bg-cyan-600/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 -left-32 w-[640px] h-[640px] bg-indigo-600/[0.055] rounded-full blur-[110px]" />
+          <div className="absolute bottom-1/4 -right-32 w-[520px] h-[520px] bg-purple-600/[0.055] rounded-full blur-[90px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-violet-700/[0.03] rounded-full blur-[130px]" />
+          <div className="absolute top-3/4 left-1/3 w-[300px] h-[300px] bg-cyan-600/[0.04] rounded-full blur-[70px]" />
           <div
-            className="absolute inset-0 opacity-[0.018]"
+            className="absolute inset-0 opacity-[0.016]"
             style={{
               backgroundImage: 'radial-gradient(circle, #a5b4fc 1px, transparent 1px)',
               backgroundSize: '38px 38px',
@@ -194,7 +198,7 @@ const Home = () => {
                       aria-label={label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-800 transition-all duration-200 hover:-translate-y-0.5"
+                      className="social-icon p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-800 hover:-translate-y-0.5"
                     >
                       <Icon size={18} />
                     </a>
@@ -216,7 +220,7 @@ const Home = () => {
                 key={i}
                 value={stat.value}
                 label={stat.label}
-                className="bg-zinc-900/80 px-6 py-6 flex flex-col hover:bg-zinc-900 transition-colors duration-200 cursor-default"
+                className="stat-cell bg-zinc-900/80 px-6 py-6 flex flex-col hover:bg-zinc-900 transition-colors duration-200 cursor-default"
               />
             ))}
           </div>
@@ -268,12 +272,11 @@ const Home = () => {
                   onMouseLeave={tiltOff}
                   className={[
                     'reveal tilt-card cursor-default bg-zinc-900 border rounded-2xl p-7',
-                    'hover:shadow-xl hover:shadow-black/30',
-                    item.border,
+                    item.border, item.cardClass,
                   ].join(' ')}
                   style={{ transitionDelay: `${i * 0.08}s` }}
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${item.bg}`}>
+                  <div className={`highlight-icon w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-shadow duration-300 ${item.bg}`}>
                     <Icon className={item.color} size={24} />
                   </div>
                   <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
@@ -288,7 +291,7 @@ const Home = () => {
               <Link
                 key={i}
                 to={item.to}
-                className="reveal flex items-center justify-between p-5 bg-zinc-900 border border-zinc-800 hover:border-indigo-500/40 hover:bg-zinc-900/80 rounded-xl transition-all duration-200 group hover:-translate-y-0.5"
+                className="cosmic-nav-card reveal flex items-center justify-between p-5 bg-zinc-900 border border-zinc-800 hover:border-indigo-500/40 hover:bg-zinc-900/80 rounded-xl group hover:-translate-y-0.5"
                 style={{ transitionDelay: `${i * 0.07}s` }}
               >
                 <div>

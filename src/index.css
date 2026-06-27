@@ -108,6 +108,12 @@
   animation: shimmer-pass 9s ease-in-out infinite;
 }
 
+/* ── Photo card gentle float ─────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
 /* ── Floating badges ─────────────────────────────────────────── */
 @keyframes badge-float {
   0%, 100% { transform: translateY(0px); }
@@ -116,6 +122,60 @@
 .badge-float   { animation: badge-float 3.5s ease-in-out infinite; }
 .badge-float-2 { animation: badge-float 3.5s ease-in-out 0.6s infinite; }
 .badge-float-3 { animation: badge-float 3.5s ease-in-out 1.2s infinite; }
+
+/* ── Galaxy: nebula glow behind profile photo ────────────────── */
+@keyframes nebula-breathe {
+  0%, 100% { opacity: 0.50; transform: scale(1);    }
+  50%       { opacity: 0.88; transform: scale(1.07); }
+}
+.galaxy-nebula-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(99,  102, 241, 0.11) 0%,
+    rgba(168, 85,  247, 0.07) 38%,
+    rgba(34,  211, 238, 0.03) 60%,
+    transparent 75%
+  );
+  filter: blur(26px);
+  animation: nebula-breathe 5.5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+/* ── Galaxy: slow-rotating halo ring behind photo ────────────── */
+@keyframes galaxy-halo-spin {
+  to { transform: rotate(360deg); }
+}
+.galaxy-halo {
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(99,  102, 241, 0.14) 12%,
+    rgba(168, 85,  247, 0.11) 26%,
+    rgba(34,  211, 238, 0.07) 40%,
+    transparent 52%,
+    rgba(99,  102, 241, 0.09) 66%,
+    rgba(168, 85,  247, 0.07) 80%,
+    transparent 92%
+  );
+  animation: galaxy-halo-spin 24s linear infinite;
+  filter: blur(14px);
+  will-change: transform;
+}
+
+/* ── Galaxy: energy pulse rings expanding outward ────────────── */
+@keyframes ep-expand {
+  0%   { transform: scale(1);    opacity: 0.50; }
+  100% { transform: scale(2.15); opacity: 0;    }
+}
+.energy-pulse {
+  border: 1px solid rgba(99, 102, 241, 0.38);
+  animation: ep-expand 3.8s ease-out infinite;
+  will-change: transform, opacity;
+}
+.ep-1 { animation-delay: 0s;    border-color: rgba(99,  102, 241, 0.38); }
+.ep-2 { animation-delay: 1.27s; border-color: rgba(168, 85,  247, 0.28); }
+.ep-3 { animation-delay: 2.54s; border-color: rgba(34,  211, 238, 0.20); }
 
 /* ── Tilt card ───────────────────────────────────────────────── */
 .tilt-card {
@@ -155,6 +215,61 @@
 
 /* ── Magnetic button ─────────────────────────────────────────── */
 .magnetic { will-change: transform; display: inline-block; }
+
+/* ── Galaxy-themed card hover glow ──────────────────────────── */
+.card {
+  transition: border-color 0.28s ease, box-shadow 0.35s cubic-bezier(0.23,1,0.32,1), transform 0.22s cubic-bezier(0.23,1,0.32,1) !important;
+}
+.card:hover {
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.18), 0 8px 32px rgba(0,0,0,0.35), 0 0 24px rgba(99,102,241,0.08) !important;
+}
+
+/* ── Cosmic nav card (About, Experience, etc.) ───────────────── */
+.cosmic-nav-card {
+  transition: border-color 0.25s ease, box-shadow 0.32s cubic-bezier(0.23,1,0.32,1), transform 0.2s cubic-bezier(0.23,1,0.32,1);
+}
+.cosmic-nav-card:hover {
+  box-shadow: 0 0 18px rgba(99,102,241,0.10), 0 4px 18px rgba(0,0,0,0.28);
+}
+
+/* ── Highlight card cosmic glow (AI Engineering, Full-Stack, etc.) */
+.highlight-card {
+  transition: border-color 0.28s ease, box-shadow 0.38s cubic-bezier(0.23,1,0.32,1), transform 0.22s cubic-bezier(0.23,1,0.32,1);
+}
+.highlight-card-indigo:hover {
+  box-shadow: 0 0 28px rgba(99,102,241,0.14), 0 8px 28px rgba(0,0,0,0.30);
+}
+.highlight-card-indigo:hover .highlight-icon {
+  box-shadow: 0 0 16px rgba(99,102,241,0.30);
+}
+.highlight-card-purple:hover {
+  box-shadow: 0 0 28px rgba(168,85,247,0.12), 0 8px 28px rgba(0,0,0,0.30);
+}
+.highlight-card-purple:hover .highlight-icon {
+  box-shadow: 0 0 16px rgba(168,85,247,0.28);
+}
+.highlight-card-cyan:hover {
+  box-shadow: 0 0 28px rgba(34,211,238,0.10), 0 8px 28px rgba(0,0,0,0.30);
+}
+.highlight-card-cyan:hover .highlight-icon {
+  box-shadow: 0 0 16px rgba(34,211,238,0.24);
+}
+
+/* ── Social icon cosmic hover ───────────────────────────────── */
+.social-icon {
+  transition: color 0.18s ease, border-color 0.18s ease, box-shadow 0.22s ease, transform 0.2s cubic-bezier(0.23,1,0.32,1);
+}
+.social-icon:hover {
+  box-shadow: 0 0 12px rgba(99,102,241,0.22);
+}
+
+/* ── Stats card subtle glow ──────────────────────────────────── */
+.stat-cell {
+  transition: background-color 0.2s ease, box-shadow 0.25s ease;
+}
+.stat-cell:hover {
+  box-shadow: inset 0 0 20px rgba(99,102,241,0.06);
+}
 
 /* ── Glow focus ring ─────────────────────────────────────────── */
 .glow-focus:focus-visible {
@@ -270,6 +385,9 @@
   .reveal           { opacity: 1 !important; transform: none !important; }
   .animate-page-in  { animation: none; }
   .photo-entrance   { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .rotating-conic   { animation: none !important; }
-  .shimmer-sweep    { animation: none !important; }
+  .rotating-conic      { animation: none !important; }
+  .shimmer-sweep       { animation: none !important; }
+  .galaxy-halo         { animation: none !important; }
+  .galaxy-nebula-glow  { animation: none !important; }
+  .energy-pulse        { animation: none !important; }
 }
