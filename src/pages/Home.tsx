@@ -46,8 +46,8 @@ const MagneticWrapper: React.FC<{ children: React.ReactNode; strength?: number }
 
 // ── Data ──────────────────────────────────────────────────────────
 const stats = [
-  { value: '2+',     label: 'Years Experience' },
-  { value: '3+',     label: 'Production Apps'  },
+  { value: '2.5+',     label: 'Years Experience' },
+  { value: '5+',     label: 'Production Apps'  },
   { value: '20+',    label: 'Technologies'     },
   { value: 'Top 1%', label: 'Competitive Rank' },
 ];
