@@ -1,4 +1,3 @@
-// ── Imports ───────────────────────────────────────────────────── 
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Github, Linkedin, Mail, Brain, Code2, Zap } from 'lucide-react';
